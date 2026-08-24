@@ -57,6 +57,14 @@ a { color:inherit; text-decoration:none; }
 .choice.active { border-color:var(--clay); background:#f7dfd5; color:#6b2f1d; }
 .modal-actions { display:grid; grid-template-columns:1fr 2fr; gap:10px; margin-top:22px; }
 .secondary { border:1px solid #aaa08f; border-radius:14px; background:transparent; padding:13px 16px; font-weight:800; }
+.order-confirmation { text-align:center; max-width:540px; }
+.order-confirmation h2 { margin-bottom:4px; }
+.ready-check { width:62px; height:62px; margin:0 auto 10px; border-radius:999px; display:grid; place-items:center; background:#dcebd8; color:#285c2e; font-size:2rem; font-weight:900; }
+.pickup-ticket { margin:22px auto; padding:16px 28px; width:min(330px,100%); border:2px dashed var(--clay); border-radius:18px; background:#fff5e5; display:grid; gap:2px; }
+.pickup-ticket span { color:var(--muted); font-weight:800; letter-spacing:.12em; text-transform:uppercase; font-size:.72rem; }
+.pickup-ticket strong { font-family:"Patrick Hand",cursive; color:var(--clay); font-size:4.8rem; line-height:1; letter-spacing:.12em; }
+.confirmation-note { color:var(--muted); line-height:1.55; }
+.track-link { display:block; margin-bottom:11px; }
 .status-banner { margin:14px clamp(18px,3vw,42px) 0; padding:13px 16px; border-radius:13px; background:#e9f4e7; color:#244a28; font-weight:700; }
 .status-banner.error { background:#f8ddd7; color:#752d20; }
 .status-banner.warning { background:#fff0c5; color:#684c0f; }
@@ -72,6 +80,7 @@ a { color:inherit; text-decoration:none; }
 .order-card.ready { border-left-color:#5a8b61; }
 .order-head { display:flex; justify-content:space-between; gap:10px; }
 .order-name { font-family:"Patrick Hand",cursive; font-size:1.65rem; }
+.order-code { margin:5px 0; color:#527558; font-weight:900; letter-spacing:.08em; }
 .order-time { color:var(--muted); font-size:.76rem; white-space:nowrap; }
 .order-items { margin:10px 0; padding-left:18px; line-height:1.5; }
 .order-items small { color:var(--muted); display:block; }
@@ -88,6 +97,11 @@ a { color:inherit; text-decoration:none; }
 .chalk-dots { border-bottom:2px dotted #ffffff75; transform:translateY(-7px); }
 .chalk-badge { margin-left:9px; color:#e6a789; font-family:"Caveat",cursive; font-size:.76em; }
 .chalk-sold { opacity:.45; text-decoration:line-through; }
+.chalk-ready { margin:24px auto 0; padding:15px 22px 18px; max-width:1100px; border:3px double #f5d9a0; border-radius:18px; text-align:center; background:#ffffff08; }
+.chalk-ready h2 { margin:0 0 9px; color:#f5d9a0; font-family:"Fredericka the Great",serif; font-size:clamp(1.5rem,3vw,2.7rem); font-weight:400; }
+.chalk-ready div { display:flex; justify-content:center; flex-wrap:wrap; gap:10px 24px; }
+.chalk-ready span { font-family:"Patrick Hand",cursive; font-size:clamp(1.25rem,2.3vw,2.15rem); }
+.chalk-ready strong { color:#e6a789; margin-right:6px; }
 .chalk-footer { margin-top:40px; padding-top:18px; border-top:2px dashed #ffffff80; display:flex; justify-content:space-between; gap:20px; font-family:"Caveat",cursive; font-size:clamp(1.4rem,2.5vw,2.4rem); color:#dcd2bc; }
 .admin-page { min-height:100vh; background:#eee6d9; }
 .admin-wrap { max-width:1100px; margin:0 auto; padding:28px 20px 60px; }
@@ -102,6 +116,26 @@ a { color:inherit; text-decoration:none; }
 .toggle { min-width:84px; border:1px solid #b9ac97; border-radius:999px; background:#e8ded0; padding:7px 10px; font-weight:800; }
 .toggle.on { background:#dcebd8; color:#275b2c; }
 .loading { min-height:50vh; display:grid; place-items:center; font-family:"Caveat",cursive; font-size:2.4rem; color:var(--muted); }
+.track-page { min-height:100vh; background:radial-gradient(circle at top right,#fff6df 0,transparent 34%),var(--cream); }
+.track-wrap { width:min(760px,calc(100% - 32px)); margin:0 auto; padding:48px 0 70px; }
+.track-form,.track-card { border:1px solid #c9bca8; border-radius:22px; background:var(--paper); padding:clamp(20px,4vw,34px); box-shadow:0 10px 30px #4c3c2714; }
+.track-form label { display:block; margin-bottom:9px; font-weight:900; }
+.code-input { text-align:center; font-family:"Patrick Hand",cursive; font-size:2rem; letter-spacing:.18em; }
+.track-form .primary { width:auto; min-width:150px; }
+.track-card { text-align:center; border-top:7px solid var(--gold); }
+.track-card.status-in_progress { border-top-color:var(--clay); }
+.track-card.status-ready { border-top-color:#5a8b61; background:#f5fbf1; }
+.track-label { color:var(--muted); font-weight:900; letter-spacing:.15em; text-transform:uppercase; font-size:.72rem; }
+.track-code { display:block; margin:2px 0 12px; color:var(--clay); font-family:"Patrick Hand",cursive; font-size:4.5rem; line-height:1; letter-spacing:.12em; }
+.track-card h2 { margin:0 0 25px; font-family:"Caveat",cursive; font-size:clamp(2.3rem,6vw,4rem); line-height:1; }
+.track-steps { display:grid; grid-template-columns:repeat(3,1fr); position:relative; margin:24px 0; }
+.track-steps::before { content:""; position:absolute; left:16%; right:16%; top:17px; height:3px; background:#d7ccba; }
+.track-steps div { position:relative; z-index:1; display:grid; justify-items:center; gap:6px; color:var(--muted); }
+.track-steps span { width:36px; height:36px; border-radius:999px; display:grid; place-items:center; background:#ddd2c1; color:white; font-weight:900; }
+.track-steps .done span { background:#5a8b61; }
+.track-steps .done small { color:#315b37; font-weight:900; }
+.notify-button { width:100%; margin-top:8px; background:white; }
+.track-updated { margin:15px 0 0; color:var(--muted); font-size:.76rem; }
 @media(max-width:1000px){.product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.kiosk-grid{grid-template-columns:1fr 330px}.brand-tag{display:none}}
-@media(max-width:760px){.topbar{align-items:flex-start}.nav{display:none}.kiosk-grid{display:block}.cart-pane{border-left:0;border-top:1px solid #cbbda6;min-height:390px}.product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.product{min-height:150px}.chalk-content,.admin-grid{grid-template-columns:1fr}.chalk-footer{flex-direction:column;text-align:center}.board-columns{grid-template-columns:86vw 86vw 86vw}}
+@media(max-width:760px){.topbar{align-items:flex-start}.nav{display:none}.kiosk-grid{display:block}.cart-pane{border-left:0;border-top:1px solid #cbbda6;min-height:390px}.product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.product{min-height:150px}.chalk-content,.admin-grid{grid-template-columns:1fr}.chalk-footer{flex-direction:column;text-align:center}.board-columns{grid-template-columns:86vw 86vw 86vw}.track-wrap{padding-top:30px}}
 @media(max-width:430px){.product-grid{grid-template-columns:1fr}.category-tab{flex:1;padding-inline:10px}.modal-actions{grid-template-columns:1fr}}
