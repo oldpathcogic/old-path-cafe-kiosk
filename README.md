@@ -17,6 +17,7 @@ The live system is hosted on ChatGPT Sites because it uses persistent D1 data an
 ## What Works
 
 - Customers customize drinks, add items, enter a name, and submit an order.
+- Customers can choose quantities from 1–20 and adjust them again in the cart.
 - Orders persist in D1 and appear on separate barista devices within seconds.
 - Baristas move orders through New, In Progress, Ready, and Completed.
 - Marking an order Ready updates the customer tracker and posts only its random pickup code on the cafe display; customer names remain on the protected barista board.
