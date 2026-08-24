@@ -1,13 +1,17 @@
 # She Brews Cafe
 
+[![Validate production app](https://github.com/oldpathcogic/old-path-cafe-kiosk/actions/workflows/nextjs.yml/badge.svg)](https://github.com/oldpathcogic/old-path-cafe-kiosk/actions/workflows/nextjs.yml)
+
 Production-ready ordering system for the Old Path church cafe.
 
-## Live Screens
+## Open the Live App
 
-- `/` — customer iPad kiosk
-- `/barista` — protected live fulfillment board
-- `/menu` — full-screen chalkboard menu display
-- `/admin` — protected menu controls and Google Sheet sync
+- [Customer iPad Kiosk](https://she-brews-cafe.oldpathcogic.chatgpt.site/)
+- [Barista Fulfillment Board](https://she-brews-cafe.oldpathcogic.chatgpt.site/barista)
+- [Full-Screen Chalkboard Menu](https://she-brews-cafe.oldpathcogic.chatgpt.site/menu)
+- [Menu Admin](https://she-brews-cafe.oldpathcogic.chatgpt.site/admin)
+
+The live system is hosted on ChatGPT Sites because it uses persistent D1 data and server routes. GitHub Pages is not used; it only supports static sites and cannot run the shared order database.
 
 ## What Works
 
