@@ -35,3 +35,16 @@ test("customer-ready notifications are wired through the kiosk, tracker, and men
   assert.match(ordersRoute, /trackingToken/);
   assert.match(ordersRoute, /pickupCode/);
 });
+
+test("item quantities flow through the kiosk, barista board, database, and ledger", async () => {
+  const fs = await import("node:fs/promises");
+  const component = await fs.readFile(new URL("../components/CafeApp.tsx", import.meta.url), "utf8");
+  const ordersRoute = await fs.readFile(new URL("../app/api/orders/route.ts", import.meta.url), "utf8");
+  const ledgerRoute = await fs.readFile(new URL("../app/api/admin/orders/route.ts", import.meta.url), "utf8");
+  const migration = await fs.readFile(new URL("../drizzle/0002_luxuriant_karen_page.sql", import.meta.url), "utf8");
+  assert.match(component, /Quantity/);
+  assert.match(component, /line\.quantity/);
+  assert.match(ordersRoute, /quantity<1\|\|quantity>20/);
+  assert.match(ledgerRoute, /SUM\(oi\.quantity\)/);
+  assert.match(migration, /ADD `quantity`/);
+});
