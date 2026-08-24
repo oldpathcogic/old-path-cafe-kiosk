@@ -14,7 +14,7 @@ test("build contains every cafe screen and She Brews metadata", async () => {
 
 test("built worker exposes the cafe API routes", async () => {
   const source = await import("node:fs/promises").then(fs => fs.readFile(new URL("../dist/server/index.js", import.meta.url), "utf8"));
-  for (const route of ["/api/menu", "/api/orders", "/api/admin/menu", "/api/admin/ledger", "/api/admin/orders", "/api/track", "/api/pickup"]) assert.match(source, new RegExp(route.replaceAll("/", "\\/")));
+  for (const route of ["/api/menu", "/api/orders", "/api/admin/menu", "/api/admin/ledger", "/api/admin/orders", "/api/ledger-feed", "/api/track", "/api/pickup"]) assert.match(source, new RegExp(route.replaceAll("/", "\\/")));
 });
 
 test("the protected Google Sheets orders ledger is linked from admin", async () => {
@@ -24,6 +24,15 @@ test("the protected Google Sheets orders ledger is linked from admin", async () 
   assert.match(component, /Open Google Sheet/);
   assert.match(component, /Download Orders CSV/);
   assert.match(store, /ordersLedgerUrl/);
+});
+
+test("the automatic ledger feed is token protected and shares the canonical CSV builder", async () => {
+  const fs = await import("node:fs/promises");
+  const feed = await fs.readFile(new URL("../app/api/ledger-feed/route.ts", import.meta.url), "utf8");
+  const adminExport = await fs.readFile(new URL("../app/api/admin/orders/route.ts", import.meta.url), "utf8");
+  assert.match(feed, /LEDGER_FEED_TOKEN/);
+  assert.match(feed, /buildLedgerCsv/);
+  assert.match(adminExport, /buildLedgerCsv/);
 });
 
 test("customer-ready notifications are wired through the kiosk, tracker, and menu board", async () => {
@@ -40,11 +49,11 @@ test("item quantities flow through the kiosk, barista board, database, and ledge
   const fs = await import("node:fs/promises");
   const component = await fs.readFile(new URL("../components/CafeApp.tsx", import.meta.url), "utf8");
   const ordersRoute = await fs.readFile(new URL("../app/api/orders/route.ts", import.meta.url), "utf8");
-  const ledgerRoute = await fs.readFile(new URL("../app/api/admin/orders/route.ts", import.meta.url), "utf8");
+  const ledgerBuilder = await fs.readFile(new URL("../lib/ledger.ts", import.meta.url), "utf8");
   const migration = await fs.readFile(new URL("../drizzle/0002_luxuriant_karen_page.sql", import.meta.url), "utf8");
   assert.match(component, /Quantity/);
   assert.match(component, /line\.quantity/);
   assert.match(ordersRoute, /quantity<1\|\|quantity>20/);
-  assert.match(ledgerRoute, /SUM\(oi\.quantity\)/);
+  assert.match(ledgerBuilder, /SUM\(oi\.quantity\)/);
   assert.match(migration, /ADD `quantity`/);
 });
