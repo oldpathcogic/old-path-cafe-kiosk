@@ -6,7 +6,7 @@ test("build contains every cafe screen and She Brews metadata", async () => {
   const layout = await fs.readFile(new URL("../app/layout.tsx", import.meta.url), "utf8");
   assert.match(layout, /title: "She Brews Cafe"/);
   assert.doesNotMatch(layout, /codex-preview/);
-  for (const path of ["../app/page.tsx", "../app/barista/page.tsx", "../app/menu/page.tsx", "../app/admin/page.tsx"]) {
+  for (const path of ["../app/page.tsx", "../app/barista/page.tsx", "../app/menu/page.tsx", "../app/admin/page.tsx", "../app/track/page.tsx"]) {
     const source = await fs.readFile(new URL(path, import.meta.url), "utf8");
     assert.match(source, /CafeApp/);
   }
@@ -14,5 +14,15 @@ test("build contains every cafe screen and She Brews metadata", async () => {
 
 test("built worker exposes the cafe API routes", async () => {
   const source = await import("node:fs/promises").then(fs => fs.readFile(new URL("../dist/server/index.js", import.meta.url), "utf8"));
-  for (const route of ["/api/menu", "/api/orders", "/api/admin/menu"]) assert.match(source, new RegExp(route.replaceAll("/", "\\/")));
+  for (const route of ["/api/menu", "/api/orders", "/api/admin/menu", "/api/track", "/api/pickup"]) assert.match(source, new RegExp(route.replaceAll("/", "\\/")));
+});
+
+test("customer-ready notifications are wired through the kiosk, tracker, and menu board", async () => {
+  const fs = await import("node:fs/promises");
+  const component = await fs.readFile(new URL("../components/CafeApp.tsx", import.meta.url), "utf8");
+  const ordersRoute = await fs.readFile(new URL("../app/api/orders/route.ts", import.meta.url), "utf8");
+  assert.match(component, /Notify me when it’s ready/);
+  assert.match(component, /Ready for Pickup/);
+  assert.match(ordersRoute, /trackingToken/);
+  assert.match(ordersRoute, /pickupCode/);
 });
