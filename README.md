@@ -19,7 +19,7 @@ The live system is hosted on ChatGPT Sites because it uses persistent D1 data an
 - Customers customize drinks, add items, enter a name, and submit an order.
 - Orders persist in D1 and appear on separate barista devices within seconds.
 - Baristas move orders through New, In Progress, Ready, and Completed.
-- Marking an order Ready updates the customer tracker and the cafe pickup display automatically.
+- Marking an order Ready updates the customer tracker and posts only its random pickup code on the cafe display; customer names remain on the protected barista board.
 - Customers can enable a browser notification from the tracker without an SMS subscription.
 - Menu availability and sold-out states update across every screen.
 - A published Google Sheet CSV can update menu items, add-ons, prices, labels, display order, and availability.
