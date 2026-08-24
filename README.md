@@ -26,7 +26,7 @@ The live system is hosted on ChatGPT Sites because it uses persistent D1 data an
 - Menu availability and sold-out states update across every screen.
 - A published Google Sheet CSV can update menu items, add-ons, prices, labels, display order, and availability.
 - Staff and admin data are protected by a server-side PIN.
-- The private orders ledger refreshes automatically from a token-protected live CSV feed.
+- The private orders ledger refreshes automatically from a revocable, token-protected live CSV feed; Google Sheets recalculates it every minute.
 - Payment fields are present, but payment collection remains disabled until Square or Stripe credentials are connected.
 
 ## Google Sheet Templates
