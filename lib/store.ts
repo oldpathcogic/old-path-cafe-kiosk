@@ -25,7 +25,8 @@ let schemaReady:Promise<void>|null=null;
 function ensureSchema(){
   if(schemaReady)return schemaReady;
   const database=db();
-  schemaReady=database.batch([
+  schemaReady=(async()=>{
+    await database.batch([
     database.prepare("CREATE TABLE IF NOT EXISTS menu_items (id TEXT PRIMARY KEY NOT NULL,name TEXT NOT NULL,category TEXT NOT NULL,description TEXT NOT NULL DEFAULT '',price_cents INTEGER NOT NULL,available INTEGER NOT NULL DEFAULT 1,status_label TEXT NOT NULL DEFAULT '',featured INTEGER NOT NULL DEFAULT 0,display_order INTEGER NOT NULL DEFAULT 0,allowed_addons TEXT NOT NULL DEFAULT '[]',options TEXT NOT NULL DEFAULT '[]',show_on_kiosk INTEGER NOT NULL DEFAULT 1,show_on_menu_board INTEGER NOT NULL DEFAULT 1,updated_at TEXT NOT NULL)"),
     database.prepare("CREATE TABLE IF NOT EXISTS addons (id TEXT PRIMARY KEY NOT NULL,name TEXT NOT NULL,short_name TEXT NOT NULL,category TEXT NOT NULL,price_cents INTEGER NOT NULL,available INTEGER NOT NULL DEFAULT 1,display_order INTEGER NOT NULL DEFAULT 0,updated_at TEXT NOT NULL)"),
     database.prepare("CREATE TABLE IF NOT EXISTS orders (id TEXT PRIMARY KEY NOT NULL,customer_name TEXT NOT NULL,status TEXT NOT NULL,subtotal_cents INTEGER NOT NULL,tax_cents INTEGER NOT NULL DEFAULT 0,total_cents INTEGER NOT NULL,payment_required INTEGER NOT NULL DEFAULT 0,payment_status TEXT NOT NULL DEFAULT 'not_required',payment_provider TEXT NOT NULL DEFAULT 'none',payment_intent_id TEXT NOT NULL DEFAULT '',receipt_url TEXT NOT NULL DEFAULT '',created_at TEXT NOT NULL,updated_at TEXT NOT NULL)"),
@@ -33,7 +34,16 @@ function ensureSchema(){
     database.prepare("CREATE TABLE IF NOT EXISTS settings (key TEXT PRIMARY KEY NOT NULL,value TEXT NOT NULL,updated_at TEXT NOT NULL)"),
     database.prepare("CREATE INDEX IF NOT EXISTS orders_status_created_idx ON orders(status,created_at)"),
     database.prepare("CREATE INDEX IF NOT EXISTS order_items_order_idx ON order_items(order_id)"),
-  ]).then(()=>undefined).catch(error=>{schemaReady=null;throw error});
+    ]);
+    const columns=await database.prepare("PRAGMA table_info(orders)").all<{name:string}>();
+    const names=new Set(columns.results.map(column=>column.name));
+    if(!names.has("pickup_code"))await database.prepare("ALTER TABLE orders ADD COLUMN pickup_code TEXT").run();
+    if(!names.has("tracking_token"))await database.prepare("ALTER TABLE orders ADD COLUMN tracking_token TEXT").run();
+    await database.batch([
+      database.prepare("CREATE INDEX IF NOT EXISTS orders_pickup_code_idx ON orders(pickup_code,created_at)"),
+      database.prepare("CREATE UNIQUE INDEX IF NOT EXISTS orders_tracking_token_idx ON orders(tracking_token) WHERE tracking_token IS NOT NULL"),
+    ]);
+  })().catch(error=>{schemaReady=null;throw error});
   return schemaReady;
 }
 
