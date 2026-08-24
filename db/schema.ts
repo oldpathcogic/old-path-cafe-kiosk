@@ -14,6 +14,6 @@ export const orders = sqliteTable("orders", {
   paymentRequired:integer("payment_required",{mode:"boolean"}).notNull().default(false), paymentStatus:text("payment_status").notNull().default("not_required"), paymentProvider:text("payment_provider").notNull().default("none"), paymentIntentId:text("payment_intent_id").notNull().default(""), receiptUrl:text("receipt_url").notNull().default(""), pickupCode:text("pickup_code"), trackingToken:text("tracking_token"), createdAt:text("created_at").notNull(), updatedAt:text("updated_at").notNull(),
 });
 export const orderItems = sqliteTable("order_items", {
-  id:integer("id").primaryKey({autoIncrement:true}), orderId:text("order_id").notNull(), itemId:text("item_id").notNull(), name:text("name").notNull(), optionName:text("option_name").notNull().default(""), addonsJson:text("addons_json").notNull().default("[]"), lineTotalCents:integer("line_total_cents").notNull(),
+  id:integer("id").primaryKey({autoIncrement:true}), orderId:text("order_id").notNull(), itemId:text("item_id").notNull(), name:text("name").notNull(), optionName:text("option_name").notNull().default(""), addonsJson:text("addons_json").notNull().default("[]"), quantity:integer("quantity").notNull().default(1), lineTotalCents:integer("line_total_cents").notNull(),
 });
 export const settings = sqliteTable("settings", { key:text("key").primaryKey(), value:text("value").notNull(), updatedAt:text("updated_at").notNull() });
