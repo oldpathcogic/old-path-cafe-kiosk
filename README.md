@@ -9,6 +9,7 @@ Production-ready ordering system for the Old Path church cafe.
 - [Customer iPad Kiosk](https://she-brews-cafe.oldpathcogic.chatgpt.site/)
 - [Barista Fulfillment Board](https://she-brews-cafe.oldpathcogic.chatgpt.site/barista)
 - [Full-Screen Chalkboard Menu](https://she-brews-cafe.oldpathcogic.chatgpt.site/menu)
+- [Customer Order Tracker](https://she-brews-cafe.oldpathcogic.chatgpt.site/track)
 - [Menu Admin](https://she-brews-cafe.oldpathcogic.chatgpt.site/admin)
 
 The live system is hosted on ChatGPT Sites because it uses persistent D1 data and server routes. GitHub Pages is not used; it only supports static sites and cannot run the shared order database.
@@ -18,6 +19,8 @@ The live system is hosted on ChatGPT Sites because it uses persistent D1 data an
 - Customers customize drinks, add items, enter a name, and submit an order.
 - Orders persist in D1 and appear on separate barista devices within seconds.
 - Baristas move orders through New, In Progress, Ready, and Completed.
+- Marking an order Ready updates the customer tracker and the cafe pickup display automatically.
+- Customers can enable a browser notification from the tracker without an SMS subscription.
 - Menu availability and sold-out states update across every screen.
 - A published Google Sheet CSV can update menu items, add-ons, prices, labels, display order, and availability.
 - Staff and admin data are protected by a server-side PIN.
