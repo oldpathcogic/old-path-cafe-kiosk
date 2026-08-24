@@ -21,6 +21,7 @@ The live system is hosted on ChatGPT Sites because it uses persistent D1 data an
 - Baristas move orders through New, In Progress, Ready, and Completed.
 - Marking an order Ready updates the customer tracker and posts only its random pickup code on the cafe display; customer names remain on the protected barista board.
 - Customers can enable a browser notification from the tracker without an SMS subscription.
+- A private Google Sheets orders ledger is linked from Admin, with protected Orders and Order Items CSV exports.
 - Menu availability and sold-out states update across every screen.
 - A published Google Sheet CSV can update menu items, add-ons, prices, labels, display order, and availability.
 - Staff and admin data are protected by a server-side PIN.
