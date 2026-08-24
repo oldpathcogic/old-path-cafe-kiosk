@@ -16,7 +16,7 @@ const seedItems:MenuItem[] = [
 const seedAddons:Addon[] = [
   {id:"vanilla",name:"Vanilla Syrup",shortName:"Vanilla",category:"Flavor",priceCents:75,available:true,displayOrder:1},{id:"caramel",name:"Caramel Syrup",shortName:"Caramel",category:"Flavor",priceCents:75,available:true,displayOrder:2},{id:"hazelnut",name:"Hazelnut Syrup",shortName:"Hazelnut",category:"Flavor",priceCents:75,available:true,displayOrder:3},{id:"mocha",name:"Mocha Syrup",shortName:"Mocha",category:"Flavor",priceCents:75,available:true,displayOrder:4},{id:"oat-milk",name:"Oat Milk",shortName:"Oat Milk",category:"Milk",priceCents:75,available:true,displayOrder:5},{id:"almond-milk",name:"Almond Milk",shortName:"Almond Milk",category:"Milk",priceCents:75,available:true,displayOrder:6},{id:"whipped-cream",name:"Whipped Cream",shortName:"Whip",category:"Topping",priceCents:75,available:true,displayOrder:7},{id:"extra-shot",name:"Extra Espresso Shot",shortName:"Extra Shot",category:"Coffee",priceCents:100,available:true,displayOrder:8},{id:"decaf-espresso",name:"Decaf Espresso Option",shortName:"Decaf",category:"Coffee",priceCents:50,available:true,displayOrder:9},
 ];
-const settingDefaults:Record<string,string> = {cafeName:"She Brews",subtitle:"Coffee. Connection. Community.",footer:"All proceeds support the ministry",paymentEnabled:"false",paymentProvider:"none",itemSheetUrl:"",addonSheetUrl:""};
+const settingDefaults:Record<string,string> = {cafeName:"She Brews",subtitle:"Coffee. Connection. Community.",footer:"All proceeds support the ministry",paymentEnabled:"false",paymentProvider:"none",itemSheetUrl:"",addonSheetUrl:"",ordersLedgerUrl:"https://docs.google.com/spreadsheets/d/1Nq6ufTHsBmzNFuDOuMnnpSkoUp5FlyjXYWU4gzVHRLs/edit"};
 
 function db(){ if(!env.DB) throw new Error("Cafe database is unavailable"); return env.DB; }
 function bool(value:unknown){ return Number(value) === 1 || value === true; }
@@ -78,6 +78,7 @@ export function requireAdmin(request:Request){
 }
 
 export async function setSetting(key:string,value:string){await db().prepare("INSERT INTO settings (key,value,updated_at) VALUES (?,?,?) ON CONFLICT(key) DO UPDATE SET value=excluded.value,updated_at=excluded.updated_at").bind(key,value,new Date().toISOString()).run()}
+export async function getSetting(key:string){await seedDatabase();const row=await db().prepare("SELECT value FROM settings WHERE key=?").bind(key).first<{value:string}>();return row?.value||settingDefaults[key]||""}
 export function parseCsv(text:string){
   const rows:string[][]=[]; let row:string[]=[]; let cell=""; let quoted=false;
   for(let i=0;i<text.length;i++){const c=text[i]; if(c==='"'&&quoted&&text[i+1]==='"'){cell+='"';i++}else if(c==='"'){quoted=!quoted}else if(c===','&&!quoted){row.push(cell.trim());cell=""}else if((c==='\n'||c==='\r')&&!quoted){if(c==='\r'&&text[i+1]==='\n')i++;row.push(cell.trim());if(row.some(Boolean))rows.push(row);row=[];cell=""}else cell+=c}
