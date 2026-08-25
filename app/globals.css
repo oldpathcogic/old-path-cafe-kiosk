@@ -150,7 +150,7 @@ a { color:inherit; text-decoration:none; }
 .chalk-header { position:relative; display:grid; justify-items:center; gap:2px; padding:0 13% clamp(16px,1.8vw,28px); color:#f8f3dd; text-align:center; }
 .chalk-header::after { content:"~  •  ❦  •  ~"; margin-top:9px; color:#e8c986; font-family:Georgia,serif; font-size:clamp(1rem,1.5vw,1.55rem); letter-spacing:.24em; }
 .chalk-logo { font-family:"Cabin Sketch","Fredericka the Great",Georgia,serif; font-size:clamp(3.5rem,6.35vw,7rem); font-weight:700; line-height:.82; letter-spacing:.015em; text-shadow:1px 2px 0 #ffffff1f,0 0 16px #ffffff0d; }
-.chalk-tag { color:#bfe2d2; font-family:"Caveat","Patrick Hand",cursive; font-size:clamp(1.15rem,2vw,2rem); font-weight:600; letter-spacing:.07em; }
+.chalk-tag { color:#d8eee4; font-family:"Patrick Hand","Schoolbell",cursive; font-size:clamp(1.1rem,1.8vw,1.8rem); font-weight:400; line-height:1.1; letter-spacing:.055em; }
 .menu-board-label { order:-1; border-bottom:1px solid #e8c986aa; padding:0 24px 5px; color:#e8c986; font-family:"Patrick Hand",cursive; font-size:clamp(.85rem,1.15vw,1.2rem); letter-spacing:.24em; text-transform:uppercase; }
 .chalk-ready { margin:0 auto clamp(16px,1.7vw,26px); padding:8px 18px 10px; border:2px dashed #f0ad6c; border-radius:4px; text-align:center; color:#f7d7a8; background:#0a322a99; transform:rotate(-.15deg); }
 .chalk-ready h2 { display:inline; margin:0 20px 0 0; color:#f0ad6c; font-family:"Fredericka the Great",Georgia,serif; font-size:clamp(1.1rem,1.7vw,1.7rem); font-weight:400; }

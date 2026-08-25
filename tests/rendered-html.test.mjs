@@ -94,6 +94,7 @@ test("customer and staff surfaces keep distinct readable visual systems", async 
   assert.match(component, /chalk-leader/);
   assert.match(styles, /\.product \{[^}]*background:var\(--green\)/s);
   assert.match(styles, /\.chalk-logo \{[^}]*font-family:"Cabin Sketch"/s);
+  assert.match(styles, /\.chalk-tag \{[^}]*font-family:"Patrick Hand"/s);
   assert.match(styles, /\.chalk-board \{[^}]*aspect-ratio:16\/9/s);
   assert.match(styles, /\.chalk-board \{[^}]*border:[^;]*solid #715039[^}]*background:[^}]*#1d2723/s);
   assert.match(styles, /\.chalk-board::before,\.chalk-board::after \{[^}]*content:"❦"/s);
