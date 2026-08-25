@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Fredericka+the+Great&family=Inter:wght@400;500;600;700;800&family=Nunito+Sans:wght@500;600;700;800;900&family=Patrick+Hand&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@400;700&family=Caveat:wght@500;600;700&family=Fredericka+the+Great&family=Inter:wght@400;500;600;700;800&family=Nunito+Sans:wght@500;600;700;800;900&family=Patrick+Hand&family=Schoolbell&display=swap");
 @import "tailwindcss";
 
 :root {
@@ -142,14 +142,14 @@ a { color:inherit; text-decoration:none; }
 .empty-col { color:#77817c; text-align:center; padding:60px 10px; font-size:.88rem; }
 
 /* Staff television menu: vintage framed chalkboard */
-.chalk-page { min-height:100vh; padding:clamp(13px,1.8vw,28px); background:radial-gradient(circle at 16% 12%,#f8fff9 0,transparent 24%),radial-gradient(circle at 88% 86%,#cfe7db 0,transparent 28%),var(--mint); color:#f7f2dd; }
-.chalk-board { position:relative; min-height:calc(100vh - clamp(26px,3.6vw,56px)); overflow:hidden; border:clamp(13px,1.7vw,25px) solid #7b5031; border-radius:8px; padding:clamp(24px,2.8vw,46px); background:radial-gradient(ellipse at 18% 20%,#ffffff0c 0,transparent 25%),radial-gradient(ellipse at 76% 72%,#ffffff09 0,transparent 31%),repeating-linear-gradient(2deg,#ffffff05 0 1px,transparent 1px 9px),#123f34; box-shadow:inset 0 0 0 3px #b38457,inset 0 0 0 7px #4c301e,inset 0 0 65px #001c16b8,0 15px 40px #143e2d35; font-family:"Patrick Hand","Comic Sans MS",cursive; }
+.chalk-page { width:100vw; height:100svh; overflow:hidden; display:grid; place-items:center; padding:clamp(7px,1vw,18px); background:radial-gradient(circle at 16% 12%,#f8fff9 0,transparent 24%),radial-gradient(circle at 88% 86%,#cfe7db 0,transparent 28%),var(--mint); color:#f7f2dd; }
+.chalk-board { position:relative; width:min(calc(100vw - 14px),177.7778svh); max-height:calc(100svh - 14px); aspect-ratio:16/9; overflow:hidden; border:clamp(13px,1.55vw,24px) solid #715039; border-radius:7px; padding:clamp(20px,2.25vw,42px); background:radial-gradient(ellipse at 18% 20%,#ffffff0b 0,transparent 25%),radial-gradient(ellipse at 76% 72%,#6f91820a 0,transparent 31%),repeating-linear-gradient(2deg,#ffffff04 0 1px,transparent 1px 9px),#1d2723; box-shadow:inset 0 0 0 3px #a77b55,inset 0 0 0 7px #402d21,inset 0 0 78px #050908d9,0 15px 40px #143e2d35; font-family:"Schoolbell","Patrick Hand",cursive; }
 .chalk-board::before,.chalk-board::after { content:"❦"; position:absolute; top:20px; color:#cfe9dc99; font-family:Georgia,serif; font-size:clamp(2rem,3.7vw,4.3rem); line-height:1; text-shadow:1px 1px 0 #ffffff20; }
 .chalk-board::before { left:clamp(22px,3vw,54px); transform:rotate(-18deg); }
 .chalk-board::after { right:clamp(22px,3vw,54px); transform:rotate(198deg); }
 .chalk-header { position:relative; display:grid; justify-items:center; gap:2px; padding:0 13% clamp(16px,1.8vw,28px); color:#f8f3dd; text-align:center; }
 .chalk-header::after { content:"~  •  ❦  •  ~"; margin-top:9px; color:#e8c986; font-family:Georgia,serif; font-size:clamp(1rem,1.5vw,1.55rem); letter-spacing:.24em; }
-.chalk-logo { font-family:"Fredericka the Great",Georgia,serif; font-size:clamp(3.6rem,6.7vw,7.4rem); font-weight:400; line-height:.82; letter-spacing:.015em; text-shadow:1px 2px 0 #ffffff1f,0 0 16px #ffffff0d; }
+.chalk-logo { font-family:"Cabin Sketch","Fredericka the Great",Georgia,serif; font-size:clamp(3.5rem,6.35vw,7rem); font-weight:700; line-height:.82; letter-spacing:.015em; text-shadow:1px 2px 0 #ffffff1f,0 0 16px #ffffff0d; }
 .chalk-tag { color:#bfe2d2; font-family:"Caveat","Patrick Hand",cursive; font-size:clamp(1.15rem,2vw,2rem); font-weight:600; letter-spacing:.07em; }
 .menu-board-label { order:-1; border-bottom:1px solid #e8c986aa; padding:0 24px 5px; color:#e8c986; font-family:"Patrick Hand",cursive; font-size:clamp(.85rem,1.15vw,1.2rem); letter-spacing:.24em; text-transform:uppercase; }
 .chalk-ready { margin:0 auto clamp(16px,1.7vw,26px); padding:8px 18px 10px; border:2px dashed #f0ad6c; border-radius:4px; text-align:center; color:#f7d7a8; background:#0a322a99; transform:rotate(-.15deg); }
@@ -158,7 +158,7 @@ a { color:inherit; text-decoration:none; }
 .chalk-ready span { min-width:60px; padding:1px 7px; border-bottom:1px solid #f7d7a880; font-size:clamp(1.25rem,2vw,2rem); }
 .chalk-ready strong { color:#fff8e8; }
 .chalk-content { display:grid; grid-template-columns:1.45fr .8fr; align-items:stretch; gap:clamp(18px,2.2vw,38px); }
-.chalk-section { min-width:0; border:2px solid #d7eadf73; border-radius:3px; padding:clamp(17px,2vw,30px); background:#072d2675; box-shadow:inset 0 0 25px #ffffff08; }
+.chalk-section { min-width:0; border:2px solid #d7eadf73; border-radius:3px; padding:clamp(15px,1.75vw,28px); background:#0b100e73; box-shadow:inset 0 0 25px #ffffff07; }
 .chalk-section-head { position:relative; display:flex; align-items:center; justify-content:center; gap:12px; margin-bottom:clamp(13px,1.6vw,23px); padding-bottom:8px; border-bottom:1px solid #d7eadf99; }
 .chalk-section-head::before,.chalk-section-head::after { content:"~"; color:#e8c986; font-family:"Caveat",cursive; font-size:clamp(1.5rem,2.6vw,2.8rem); }
 .chalk-section h2 { margin:0; color:#f7f2dd; font-family:"Fredericka the Great",Georgia,serif; font-size:clamp(1.9rem,3vw,3.5rem); font-weight:400; line-height:1; letter-spacing:.04em; }
@@ -167,10 +167,10 @@ a { color:inherit; text-decoration:none; }
 .chalk-section:nth-child(2) .chalk-items { grid-template-columns:1fr; }
 .chalk-item { position:relative; min-width:0; display:grid; grid-template-columns:minmax(0,max-content) minmax(16px,1fr) auto; align-items:end; gap:8px; padding:3px 0 6px; color:#f7f2dd; }
 .chalk-item-copy { min-width:0; display:grid; }
-.chalk-item-copy > span { font-family:"Patrick Hand",cursive; font-size:clamp(1.25rem,2vw,2.15rem); line-height:1; letter-spacing:.025em; text-shadow:0 0 8px #ffffff0d; }
+.chalk-item-copy > span { font-family:"Schoolbell","Patrick Hand",cursive; font-size:clamp(1.2rem,1.85vw,2rem); line-height:1; letter-spacing:.025em; text-shadow:0 0 8px #ffffff0d; }
 .chalk-item-copy small { max-width:24ch; overflow:hidden; color:#b8d5c8; font-family:"Caveat","Patrick Hand",cursive; font-size:clamp(.72rem,1vw,1.05rem); line-height:1.1; text-overflow:ellipsis; white-space:nowrap; }
 .chalk-leader { min-width:12px; margin-bottom:9px; border-bottom:2px dotted #d8e6de80; }
-.chalk-item > strong { color:#f4ce88; font-family:"Patrick Hand",cursive; font-size:clamp(1.25rem,2vw,2.15rem); font-weight:400; line-height:1; white-space:nowrap; }
+.chalk-item > strong { color:#f4ce88; font-family:"Schoolbell","Patrick Hand",cursive; font-size:clamp(1.2rem,1.85vw,2rem); font-weight:400; line-height:1; white-space:nowrap; }
 .chalk-badge { width:max-content; margin-top:4px; border:1px solid #ef9c5f; border-radius:2px; color:#efb27f; padding:1px 6px; font-family:"Caveat",cursive; font-size:clamp(.58rem,.8vw,.85rem); font-style:normal; font-weight:700; letter-spacing:.06em; text-transform:uppercase; transform:rotate(-2deg); }
 .chalk-sold .chalk-item-copy,.chalk-sold .chalk-leader,.chalk-sold > strong { opacity:.28; }
 .chalk-sold::after { content:"SOLD OUT"; position:absolute; right:0; top:50%; color:#ef9c73; font-family:"Caveat",cursive; font-size:clamp(1rem,1.6vw,1.7rem); font-weight:700; letter-spacing:.08em; transform:translateY(-50%) rotate(-5deg); }
@@ -290,11 +290,15 @@ a { color:inherit; text-decoration:none; }
   .modal-product-head{grid-template-columns:94px 1fr;gap:14px}
   .modal-product-image{width:94px;height:94px}
   .chalk-page{padding:7px}
-  .chalk-board{min-height:calc(100vh - 14px);border-width:9px;padding:22px 13px}
+  .chalk-board{border-width:9px;padding:22px 13px}
   .chalk-board::before,.chalk-board::after{top:13px;font-size:1.65rem}
   .chalk-header{padding-inline:7%}
   .chalk-item{grid-template-columns:minmax(0,max-content) minmax(12px,1fr) auto;gap:5px}
   .chalk-item-copy small{max-width:17ch}
+}
+@media(orientation:portrait){
+  .chalk-page{width:100%;height:auto;min-height:100vh;overflow:visible;align-items:start}
+  .chalk-board{width:100%;max-height:none;min-height:calc(100vh - 14px);aspect-ratio:auto;overflow:visible}
 }
 @media(max-width:350px){
   .customer-topbar .brand-name{font-size:1.08rem}
