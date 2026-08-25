@@ -71,3 +71,14 @@ test("menu item images are rendered and configurable through the menu sheet", as
     await fs.access(new URL(`../public/menu-images/${slug}.webp`, import.meta.url));
   }
 });
+
+test("customer and staff surfaces keep distinct readable visual systems", async () => {
+  const fs = await import("node:fs/promises");
+  const component = await fs.readFile(new URL("../components/CafeApp.tsx", import.meta.url), "utf8");
+  const styles = await fs.readFile(new URL("../app/globals.css", import.meta.url), "utf8");
+  assert.match(component, /staff-topbar/);
+  assert.match(component, /chalk-image/);
+  assert.match(styles, /\.product \{[^}]*background:var\(--green\)/s);
+  assert.match(styles, /\.board-page \{[^}]*font-family:"Inter"/s);
+  assert.match(styles, /\.admin-page \{[^}]*font-family:"Inter"/s);
+});
