@@ -87,6 +87,15 @@ test("customer and staff surfaces keep distinct readable visual systems", async 
   assert.match(styles, /\.admin-page \{[^}]*font-family:"Inter"/s);
 });
 
+test("phone ordering layout stays compact without sacrificing touch targets", async () => {
+  const fs = await import("node:fs/promises");
+  const styles = await fs.readFile(new URL("../app/globals.css", import.meta.url), "utf8");
+  assert.match(styles, /@media\(max-width:780px\)[\s\S]*?\.product-grid\{grid-template-columns:repeat\(2,minmax\(0,1fr\)\);gap:10px\}/);
+  assert.match(styles, /@media\(max-width:780px\)[\s\S]*?\.category-tab\{[^}]*min-height:42px/);
+  assert.match(styles, /@media\(max-width:460px\)[\s\S]*?\.product-grid\{gap:8px\}/);
+  assert.doesNotMatch(styles, /@media\(max-width:460px\)[\s\S]*?\.product-grid\{grid-template-columns:1fr\}/);
+});
+
 test("tracked inventory updates availability and decrements with orders", async () => {
   const fs = await import("node:fs/promises");
   const component = await fs.readFile(new URL("../components/CafeApp.tsx", import.meta.url), "utf8");
