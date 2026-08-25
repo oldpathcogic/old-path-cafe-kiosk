@@ -57,3 +57,17 @@ test("item quantities flow through the kiosk, barista board, database, and ledge
   assert.match(ledgerBuilder, /SUM\(oi\.quantity\)/);
   assert.match(migration, /ADD `quantity`/);
 });
+
+test("menu item images are rendered and configurable through the menu sheet", async () => {
+  const fs = await import("node:fs/promises");
+  const component = await fs.readFile(new URL("../components/CafeApp.tsx", import.meta.url), "utf8");
+  const store = await fs.readFile(new URL("../lib/store.ts", import.meta.url), "utf8");
+  const template = await fs.readFile(new URL("../public/menu-template.csv", import.meta.url), "utf8");
+  assert.match(component, /MenuItemImage/);
+  assert.match(component, /product-image/);
+  assert.match(store, /image_url/);
+  assert.match(template, /image_url/);
+  for (const slug of ["regular-coffee","cold-brew","latte","cappuccino","espresso-shot","donut","croissant"]) {
+    await fs.access(new URL(`../public/menu-images/${slug}.webp`, import.meta.url));
+  }
+});

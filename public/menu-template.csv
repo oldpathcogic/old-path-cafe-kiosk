@@ -1,8 +1,8 @@
-item_id,name,category,description,price,available,status_label,featured,display_order,allowed_addons,options,show_on_kiosk,show_on_menu_board
-regular-coffee,Regular Coffee,Coffee,"Classic drip coffee, hot and fresh",4.00,TRUE,,FALSE,1,"vanilla,caramel,hazelnut,mocha,oat-milk,almond-milk","Regular,Decaf",TRUE,TRUE
-cold-brew,Cold Brew,Coffee,"Smooth, bold, and refreshing",6.00,TRUE,Limited Edition,TRUE,2,"vanilla,caramel,hazelnut,mocha,oat-milk,almond-milk",,TRUE,TRUE
-latte,Latte,Coffee,"Hot or iced, creamy and rich",6.00,TRUE,,FALSE,3,"vanilla,caramel,hazelnut,mocha,oat-milk,almond-milk,extra-shot,whipped-cream,decaf-espresso","Hot,Iced",TRUE,TRUE
-cappuccino,Cappuccino,Coffee,"Foamy, smooth, and full of flavor",6.00,TRUE,,FALSE,4,"vanilla,caramel,hazelnut,mocha,oat-milk,almond-milk,extra-shot,decaf-espresso",,TRUE,TRUE
-espresso-shot,Espresso Shot,Coffee,"Strong and rich",2.50,TRUE,,FALSE,5,decaf-espresso,,TRUE,TRUE
-donut,Donut,Pastries,Sweet pastry,2.00,TRUE,,FALSE,6,,,TRUE,TRUE
-croissant,Croissant,Pastries,"Buttery, flaky pastry",2.00,TRUE,,FALSE,7,,,TRUE,TRUE
+item_id,name,category,description,image_url,price,available,status_label,featured,display_order,allowed_addons,options,show_on_kiosk,show_on_menu_board
+regular-coffee,Regular Coffee,Coffee,"Classic drip coffee, hot and fresh",/menu-images/regular-coffee.webp,4.00,TRUE,,FALSE,1,"vanilla,caramel,hazelnut,mocha,oat-milk,almond-milk","Regular,Decaf",TRUE,TRUE
+cold-brew,Cold Brew,Coffee,"Smooth, bold, and refreshing",/menu-images/cold-brew.webp,6.00,TRUE,Limited Edition,TRUE,2,"vanilla,caramel,hazelnut,mocha,oat-milk,almond-milk",,TRUE,TRUE
+latte,Latte,Coffee,"Hot or iced, creamy and rich",/menu-images/latte.webp,6.00,TRUE,,FALSE,3,"vanilla,caramel,hazelnut,mocha,oat-milk,almond-milk,extra-shot,whipped-cream,decaf-espresso","Hot,Iced",TRUE,TRUE
+cappuccino,Cappuccino,Coffee,"Foamy, smooth, and full of flavor",/menu-images/cappuccino.webp,6.00,TRUE,,FALSE,4,"vanilla,caramel,hazelnut,mocha,oat-milk,almond-milk,extra-shot,decaf-espresso",,TRUE,TRUE
+espresso-shot,Espresso Shot,Coffee,"Strong and rich",/menu-images/espresso-shot.webp,2.50,TRUE,,FALSE,5,decaf-espresso,,TRUE,TRUE
+donut,Donut,Pastries,Sweet pastry,/menu-images/donut.webp,2.00,TRUE,,FALSE,6,,,TRUE,TRUE
+croissant,Croissant,Pastries,"Buttery, flaky pastry",/menu-images/croissant.webp,2.00,TRUE,,FALSE,7,,,TRUE,TRUE

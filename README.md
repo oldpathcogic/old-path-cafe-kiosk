@@ -25,6 +25,7 @@ The live system is hosted on ChatGPT Sites because it uses persistent D1 data an
 - A private Google Sheets orders ledger is linked from Admin, with protected Orders and Order Items CSV exports.
 - Menu availability and sold-out states update across every screen.
 - A published Google Sheet CSV can update menu items, add-ons, prices, labels, display order, and availability.
+- Every core menu item has an optimized product photo; the menu Sheet supports an optional `image_url` column for future items.
 - Staff and admin data are protected by a server-side PIN.
 - The private orders ledger refreshes automatically from a revocable, token-protected live CSV feed; Google Sheets recalculates it every minute.
 - Payment fields are present, but payment collection remains disabled until Square or Stripe credentials are connected.
@@ -39,6 +40,8 @@ Download the templates from the Admin screen or use:
 Publish each completed Google Sheet tab as CSV, paste its published URL into Admin, and select **Sync Menu Now**.
 
 Supported item labels include `New`, `Featured`, `Limited Edition`, `Seasonal`, and `Sold Out`.
+
+Use `image_url` for a site-local path such as `/menu-images/latte.webp` or a public HTTPS image. If it is blank, the app looks for `/menu-images/<item_id>.webp` and shows a branded fallback if no file exists.
 
 ## Payment-Ready Design
 
