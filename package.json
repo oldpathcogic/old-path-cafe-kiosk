@@ -1,5 +1,5 @@
 {
-  "name": "she-brews-cafe",
+  "name": "old-path-cafe",
   "version": "0.1.0",
   "private": true,
   "engines": {
@@ -39,5 +39,5 @@
     "wrangler": "4.92.0"
   },
   "type": "module",
-  "displayName": "She Brews Cafe"
+  "displayName": "Old Path Cafe"
 }

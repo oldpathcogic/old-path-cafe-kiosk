@@ -1,12 +1,12 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 
-test("build contains every cafe screen and She Brews metadata", async () => {
+test("build contains every Old Path Cafe screen and metadata", async () => {
   const fs = await import("node:fs/promises");
   const layout = await fs.readFile(new URL("../app/layout.tsx", import.meta.url), "utf8");
-  assert.match(layout, /title: "She Brews Cafe"/);
+  assert.match(layout, /title: "Old Path Cafe"/);
   assert.doesNotMatch(layout, /codex-preview/);
-  for (const path of ["../app/page.tsx", "../app/barista/page.tsx", "../app/menu/page.tsx", "../app/admin/page.tsx", "../app/track/page.tsx"]) {
+  for (const path of ["../app/page.tsx", "../app/staff/barista/page.tsx", "../app/staff/display/page.tsx", "../app/staff/admin/page.tsx", "../app/track/page.tsx"]) {
     const source = await fs.readFile(new URL(path, import.meta.url), "utf8");
     assert.match(source, /CafeApp/);
   }
@@ -14,7 +14,7 @@ test("build contains every cafe screen and She Brews metadata", async () => {
 
 test("built worker exposes the cafe API routes", async () => {
   const source = await import("node:fs/promises").then(fs => fs.readFile(new URL("../dist/server/index.js", import.meta.url), "utf8"));
-  for (const route of ["/api/menu", "/api/orders", "/api/admin/menu", "/api/admin/inventory", "/api/admin/session", "/api/admin/ledger", "/api/admin/orders", "/api/ledger-feed", "/api/track", "/api/pickup"]) assert.match(source, new RegExp(route.replaceAll("/", "\\/")));
+  for (const route of ["/api/menu", "/api/orders", "/api/admin/menu", "/api/admin/inventory", "/api/admin/session", "/api/staff/session", "/api/admin/ledger", "/api/admin/orders", "/api/ledger-feed", "/api/track", "/api/pickup"]) assert.match(source, new RegExp(route.replaceAll("/", "\\/")));
 });
 
 test("customer navigation is separate from protected staff views", async () => {
@@ -23,6 +23,9 @@ test("customer navigation is separate from protected staff views", async () => {
   assert.match(component, /staff\?<><Link href="\/">Customer View/);
   assert.match(component, /Administrator Sign In/);
   assert.match(component, /Barista Sign In/);
+  assert.match(component, /Menu Display Sign In/);
+  assert.match(component, /href="\/staff\/display"/);
+  assert.doesNotMatch(component, /<span className="brand-mark"/);
   assert.doesNotMatch(component, /Google Sheet Sync/);
   assert.doesNotMatch(component, /Open Google Sheet/);
 });

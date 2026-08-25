@@ -1,5 +1,5 @@
-import CafeApp from "../../components/CafeApp";
+import { redirect } from "next/navigation";
 
 export default function BaristaPage() {
-  return <CafeApp view="barista" />;
+  redirect("/staff/barista");
 }

@@ -1,5 +1,5 @@
-import CafeApp from "../../components/CafeApp";
+import { redirect } from "next/navigation";
 
 export default function MenuPage() {
-  return <CafeApp view="menu" />;
+  redirect("/staff/display");
 }
