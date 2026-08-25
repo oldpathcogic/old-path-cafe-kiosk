@@ -14,16 +14,17 @@ test("build contains every cafe screen and She Brews metadata", async () => {
 
 test("built worker exposes the cafe API routes", async () => {
   const source = await import("node:fs/promises").then(fs => fs.readFile(new URL("../dist/server/index.js", import.meta.url), "utf8"));
-  for (const route of ["/api/menu", "/api/orders", "/api/admin/menu", "/api/admin/ledger", "/api/admin/orders", "/api/ledger-feed", "/api/track", "/api/pickup"]) assert.match(source, new RegExp(route.replaceAll("/", "\\/")));
+  for (const route of ["/api/menu", "/api/orders", "/api/admin/menu", "/api/admin/inventory", "/api/admin/session", "/api/admin/ledger", "/api/admin/orders", "/api/ledger-feed", "/api/track", "/api/pickup"]) assert.match(source, new RegExp(route.replaceAll("/", "\\/")));
 });
 
-test("the protected Google Sheets orders ledger is linked from admin", async () => {
+test("customer navigation is separate from protected staff views", async () => {
   const fs = await import("node:fs/promises");
   const component = await fs.readFile(new URL("../components/CafeApp.tsx", import.meta.url), "utf8");
-  const store = await fs.readFile(new URL("../lib/store.ts", import.meta.url), "utf8");
-  assert.match(component, /Open Google Sheet/);
-  assert.match(component, /Download Orders CSV/);
-  assert.match(store, /ordersLedgerUrl/);
+  assert.match(component, /staff\?<><Link href="\/">Customer View/);
+  assert.match(component, /Administrator Sign In/);
+  assert.match(component, /Barista Sign In/);
+  assert.doesNotMatch(component, /Google Sheet Sync/);
+  assert.doesNotMatch(component, /Open Google Sheet/);
 });
 
 test("the automatic ledger feed is token protected and shares the canonical CSV builder", async () => {
@@ -81,4 +82,18 @@ test("customer and staff surfaces keep distinct readable visual systems", async 
   assert.match(styles, /\.product \{[^}]*background:var\(--green\)/s);
   assert.match(styles, /\.board-page \{[^}]*font-family:"Inter"/s);
   assert.match(styles, /\.admin-page \{[^}]*font-family:"Inter"/s);
+});
+
+test("tracked inventory updates availability and decrements with orders", async () => {
+  const fs = await import("node:fs/promises");
+  const component = await fs.readFile(new URL("../components/CafeApp.tsx", import.meta.url), "utf8");
+  const store = await fs.readFile(new URL("../lib/store.ts", import.meta.url), "utf8");
+  const orders = await fs.readFile(new URL("../app/api/orders/route.ts", import.meta.url), "utf8");
+  const migration = await fs.readFile(new URL("../drizzle/0004_lush_thunderbolt.sql", import.meta.url), "utf8");
+  assert.match(component, /Menu & Inventory/);
+  assert.match(component, /Auto stock/);
+  assert.match(store, /manualAvailable&&\(!trackInventory\|\|stockOnHand>0\)/);
+  assert.match(orders, /stock_on_hand=MAX\(0,stock_on_hand-\?\)/);
+  assert.match(migration, /track_inventory/);
+  assert.match(migration, /stock_on_hand/);
 });

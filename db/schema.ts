@@ -4,11 +4,12 @@ export const menuItems = sqliteTable("menu_items", {
   id: text("id").primaryKey(), name: text("name").notNull(), category: text("category").notNull(), description: text("description").notNull().default(""),
   imageUrl: text("image_url").notNull().default(""),
   priceCents: integer("price_cents").notNull(), available: integer("available",{mode:"boolean"}).notNull().default(true), statusLabel: text("status_label").notNull().default(""),
+  trackInventory: integer("track_inventory",{mode:"boolean"}).notNull().default(false), stockOnHand: integer("stock_on_hand").notNull().default(0), lowStockThreshold: integer("low_stock_threshold").notNull().default(2),
   featured: integer("featured",{mode:"boolean"}).notNull().default(false), displayOrder: integer("display_order").notNull().default(0), allowedAddons: text("allowed_addons").notNull().default("[]"),
   options: text("options").notNull().default("[]"), showOnKiosk: integer("show_on_kiosk",{mode:"boolean"}).notNull().default(true), showOnMenuBoard: integer("show_on_menu_board",{mode:"boolean"}).notNull().default(true), updatedAt: text("updated_at").notNull(),
 });
 export const addons = sqliteTable("addons", {
-  id:text("id").primaryKey(), name:text("name").notNull(), shortName:text("short_name").notNull(), category:text("category").notNull(), priceCents:integer("price_cents").notNull(), available:integer("available",{mode:"boolean"}).notNull().default(true), displayOrder:integer("display_order").notNull().default(0), updatedAt:text("updated_at").notNull(),
+  id:text("id").primaryKey(), name:text("name").notNull(), shortName:text("short_name").notNull(), category:text("category").notNull(), priceCents:integer("price_cents").notNull(), available:integer("available",{mode:"boolean"}).notNull().default(true), trackInventory:integer("track_inventory",{mode:"boolean"}).notNull().default(false), stockOnHand:integer("stock_on_hand").notNull().default(0), lowStockThreshold:integer("low_stock_threshold").notNull().default(2), displayOrder:integer("display_order").notNull().default(0), updatedAt:text("updated_at").notNull(),
 });
 export const orders = sqliteTable("orders", {
   id:text("id").primaryKey(), customerName:text("customer_name").notNull(), status:text("status").notNull(), subtotalCents:integer("subtotal_cents").notNull(), taxCents:integer("tax_cents").notNull().default(0), totalCents:integer("total_cents").notNull(),

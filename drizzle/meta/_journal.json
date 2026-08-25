@@ -29,6 +29,13 @@
       "when": 1787619941035,
       "tag": "0003_rich_lord_tyger",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "6",
+      "when": 1787622764214,
+      "tag": "0004_lush_thunderbolt",
+      "breakpoints": true
     }
   ]
 }
