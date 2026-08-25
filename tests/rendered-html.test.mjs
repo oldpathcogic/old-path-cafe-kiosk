@@ -49,6 +49,15 @@ test("customer-ready notifications are wired through the kiosk, tracker, and men
   assert.match(ordersRoute, /pickupCode/);
 });
 
+test("television menu includes a scannable customer-order entry point", async () => {
+  const fs = await import("node:fs/promises");
+  const component = await fs.readFile(new URL("../components/CafeApp.tsx", import.meta.url), "utf8");
+  assert.match(component, /https:\/\/old-path-cafe\.oldpathcogic\.chatgpt\.site\//);
+  assert.match(component, /chalk-qr-image/);
+  assert.match(component, /Scan to Order/);
+  await fs.access(new URL("../public/order-qr.png", import.meta.url));
+});
+
 test("item quantities flow through the kiosk, barista board, database, and ledger", async () => {
   const fs = await import("node:fs/promises");
   const component = await fs.readFile(new URL("../components/CafeApp.tsx", import.meta.url), "utf8");
