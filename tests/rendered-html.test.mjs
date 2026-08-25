@@ -81,8 +81,12 @@ test("customer and staff surfaces keep distinct readable visual systems", async 
   const component = await fs.readFile(new URL("../components/CafeApp.tsx", import.meta.url), "utf8");
   const styles = await fs.readFile(new URL("../app/globals.css", import.meta.url), "utf8");
   assert.match(component, /staff-topbar/);
-  assert.match(component, /chalk-image/);
+  assert.match(component, /chalk-board/);
+  assert.match(component, /chalk-leader/);
   assert.match(styles, /\.product \{[^}]*background:var\(--green\)/s);
+  assert.match(styles, /\.chalk-logo \{[^}]*font-family:"Fredericka the Great"/s);
+  assert.match(styles, /\.chalk-board \{[^}]*border:[^;]*solid #7b5031[^}]*background:[^}]*#123f34/s);
+  assert.match(styles, /\.chalk-board::before,\.chalk-board::after \{[^}]*content:"❦"/s);
   assert.match(styles, /\.board-page \{[^}]*font-family:"Inter"/s);
   assert.match(styles, /\.admin-page \{[^}]*font-family:"Inter"/s);
 });

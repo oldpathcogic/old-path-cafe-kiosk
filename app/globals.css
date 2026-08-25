@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Nunito+Sans:wght@500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Fredericka+the+Great&family=Inter:wght@400;500;600;700;800&family=Nunito+Sans:wght@500;600;700;800;900&family=Patrick+Hand&display=swap");
 @import "tailwindcss";
 
 :root {
@@ -141,34 +141,40 @@ a { color:inherit; text-decoration:none; }
 .order-actions button:last-child { background:var(--green); }
 .empty-col { color:#77817c; text-align:center; padding:60px 10px; font-size:.88rem; }
 
-/* Customer-facing display menu */
-.chalk-page { min-height:100vh; padding:clamp(24px,4vw,56px); background:radial-gradient(circle at 100% 0,#cde5d9 0,transparent 29%),var(--mint); color:var(--ink); }
-.chalk-header { display:flex; align-items:center; justify-content:space-between; gap:24px; padding:clamp(24px,4vw,42px); border-radius:30px; background:var(--green); color:white; box-shadow:0 18px 45px #064d352f; }
-.chalk-logo { font-size:clamp(3rem,7vw,6.5rem); font-weight:900; line-height:.86; letter-spacing:-.055em; }
-.chalk-tag { margin-top:12px; color:#d9eee4; font-size:clamp(1rem,1.8vw,1.45rem); font-weight:700; letter-spacing:.06em; }
-.menu-board-label { flex:none; border:1px solid #ffffff55; border-radius:999px; padding:10px 17px; color:white; font-size:.78rem; font-weight:900; letter-spacing:.12em; text-transform:uppercase; }
-.chalk-ready { margin:22px auto 0; padding:16px 22px; border:2px solid #ffc47f; border-radius:20px; text-align:center; background:var(--orange-soft); }
-.chalk-ready h2 { margin:0 0 8px; color:#8b4d19; font-size:clamp(1.15rem,2vw,1.7rem); font-weight:900; }
-.chalk-ready div { display:flex; justify-content:center; flex-wrap:wrap; gap:10px 18px; }
-.chalk-ready span { min-width:94px; border-radius:12px; background:white; padding:8px 12px; font-size:clamp(1.25rem,2.3vw,2rem); }
-.chalk-ready strong { color:var(--green-dark); }
-.chalk-content { display:grid; grid-template-columns:1.45fr .8fr; align-items:start; gap:22px; margin-top:22px; }
-.chalk-section { border:1px solid #ffffff; border-radius:26px; background:#ffffffd9; padding:clamp(20px,3vw,30px); box-shadow:0 13px 34px #164d3518; }
-.chalk-section-head { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:16px; }
-.chalk-section h2 { margin:0; color:var(--green-dark); font-size:clamp(1.65rem,3vw,2.5rem); font-weight:900; letter-spacing:-.035em; }
-.chalk-section-head > span { color:var(--muted); font-size:.76rem; font-weight:800; }
-.chalk-items { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:13px; }
+/* Staff television menu: vintage framed chalkboard */
+.chalk-page { min-height:100vh; padding:clamp(13px,1.8vw,28px); background:radial-gradient(circle at 16% 12%,#f8fff9 0,transparent 24%),radial-gradient(circle at 88% 86%,#cfe7db 0,transparent 28%),var(--mint); color:#f7f2dd; }
+.chalk-board { position:relative; min-height:calc(100vh - clamp(26px,3.6vw,56px)); overflow:hidden; border:clamp(13px,1.7vw,25px) solid #7b5031; border-radius:8px; padding:clamp(24px,2.8vw,46px); background:radial-gradient(ellipse at 18% 20%,#ffffff0c 0,transparent 25%),radial-gradient(ellipse at 76% 72%,#ffffff09 0,transparent 31%),repeating-linear-gradient(2deg,#ffffff05 0 1px,transparent 1px 9px),#123f34; box-shadow:inset 0 0 0 3px #b38457,inset 0 0 0 7px #4c301e,inset 0 0 65px #001c16b8,0 15px 40px #143e2d35; font-family:"Patrick Hand","Comic Sans MS",cursive; }
+.chalk-board::before,.chalk-board::after { content:"❦"; position:absolute; top:20px; color:#cfe9dc99; font-family:Georgia,serif; font-size:clamp(2rem,3.7vw,4.3rem); line-height:1; text-shadow:1px 1px 0 #ffffff20; }
+.chalk-board::before { left:clamp(22px,3vw,54px); transform:rotate(-18deg); }
+.chalk-board::after { right:clamp(22px,3vw,54px); transform:rotate(198deg); }
+.chalk-header { position:relative; display:grid; justify-items:center; gap:2px; padding:0 13% clamp(16px,1.8vw,28px); color:#f8f3dd; text-align:center; }
+.chalk-header::after { content:"~  •  ❦  •  ~"; margin-top:9px; color:#e8c986; font-family:Georgia,serif; font-size:clamp(1rem,1.5vw,1.55rem); letter-spacing:.24em; }
+.chalk-logo { font-family:"Fredericka the Great",Georgia,serif; font-size:clamp(3.6rem,6.7vw,7.4rem); font-weight:400; line-height:.82; letter-spacing:.015em; text-shadow:1px 2px 0 #ffffff1f,0 0 16px #ffffff0d; }
+.chalk-tag { color:#bfe2d2; font-family:"Caveat","Patrick Hand",cursive; font-size:clamp(1.15rem,2vw,2rem); font-weight:600; letter-spacing:.07em; }
+.menu-board-label { order:-1; border-bottom:1px solid #e8c986aa; padding:0 24px 5px; color:#e8c986; font-family:"Patrick Hand",cursive; font-size:clamp(.85rem,1.15vw,1.2rem); letter-spacing:.24em; text-transform:uppercase; }
+.chalk-ready { margin:0 auto clamp(16px,1.7vw,26px); padding:8px 18px 10px; border:2px dashed #f0ad6c; border-radius:4px; text-align:center; color:#f7d7a8; background:#0a322a99; transform:rotate(-.15deg); }
+.chalk-ready h2 { display:inline; margin:0 20px 0 0; color:#f0ad6c; font-family:"Fredericka the Great",Georgia,serif; font-size:clamp(1.1rem,1.7vw,1.7rem); font-weight:400; }
+.chalk-ready div { display:inline-flex; justify-content:center; flex-wrap:wrap; gap:7px 16px; }
+.chalk-ready span { min-width:60px; padding:1px 7px; border-bottom:1px solid #f7d7a880; font-size:clamp(1.25rem,2vw,2rem); }
+.chalk-ready strong { color:#fff8e8; }
+.chalk-content { display:grid; grid-template-columns:1.45fr .8fr; align-items:stretch; gap:clamp(18px,2.2vw,38px); }
+.chalk-section { min-width:0; border:2px solid #d7eadf73; border-radius:3px; padding:clamp(17px,2vw,30px); background:#072d2675; box-shadow:inset 0 0 25px #ffffff08; }
+.chalk-section-head { position:relative; display:flex; align-items:center; justify-content:center; gap:12px; margin-bottom:clamp(13px,1.6vw,23px); padding-bottom:8px; border-bottom:1px solid #d7eadf99; }
+.chalk-section-head::before,.chalk-section-head::after { content:"~"; color:#e8c986; font-family:"Caveat",cursive; font-size:clamp(1.5rem,2.6vw,2.8rem); }
+.chalk-section h2 { margin:0; color:#f7f2dd; font-family:"Fredericka the Great",Georgia,serif; font-size:clamp(1.9rem,3vw,3.5rem); font-weight:400; line-height:1; letter-spacing:.04em; }
+.chalk-section-head > span { position:absolute; right:0; bottom:-17px; color:#a8cbbb; font-size:clamp(.62rem,.82vw,.82rem); letter-spacing:.08em; }
+.chalk-items { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); column-gap:clamp(18px,2.4vw,42px); row-gap:clamp(9px,1.15vw,18px); }
 .chalk-section:nth-child(2) .chalk-items { grid-template-columns:1fr; }
-.chalk-item { min-width:0; display:grid; grid-template-columns:82px minmax(0,1fr) auto; align-items:center; gap:13px; min-height:104px; border-radius:20px; background:var(--green); color:white; padding:11px 15px 11px 11px; box-shadow:0 8px 18px #07553d25; }
-.chalk-image { width:82px; height:82px; border-radius:15px; object-fit:cover; }
-.chalk-item-copy { min-width:0; display:grid; gap:2px; }
-.chalk-item-copy > span { font-size:clamp(1rem,1.8vw,1.35rem); font-weight:900; line-height:1.05; }
-.chalk-item-copy small { overflow:hidden; color:#d9ebe3; font-size:.7rem; line-height:1.25; text-overflow:ellipsis; white-space:nowrap; }
-.chalk-item > strong { color:#ffd3a8; font-size:clamp(1rem,1.8vw,1.35rem); white-space:nowrap; }
-.chalk-badge { width:max-content; margin-top:5px; border-radius:999px; background:var(--orange); color:white; padding:3px 7px; font-size:.56rem; font-style:normal; font-weight:900; letter-spacing:.05em; text-transform:uppercase; }
-.chalk-sold { position:relative; filter:grayscale(.7); opacity:.62; }
-.chalk-sold::after { content:"SOLD OUT"; position:absolute; inset:0; display:grid; place-items:center; border-radius:20px; background:#063f30d9; color:white; font-size:.78rem; font-weight:900; letter-spacing:.1em; }
-.chalk-footer { margin-top:22px; padding:18px 24px; border-radius:18px; display:flex; justify-content:space-between; gap:20px; background:white; color:var(--green-dark); font-size:clamp(.9rem,1.5vw,1.15rem); font-weight:800; }
+.chalk-item { position:relative; min-width:0; display:grid; grid-template-columns:minmax(0,max-content) minmax(16px,1fr) auto; align-items:end; gap:8px; padding:3px 0 6px; color:#f7f2dd; }
+.chalk-item-copy { min-width:0; display:grid; }
+.chalk-item-copy > span { font-family:"Patrick Hand",cursive; font-size:clamp(1.25rem,2vw,2.15rem); line-height:1; letter-spacing:.025em; text-shadow:0 0 8px #ffffff0d; }
+.chalk-item-copy small { max-width:24ch; overflow:hidden; color:#b8d5c8; font-family:"Caveat","Patrick Hand",cursive; font-size:clamp(.72rem,1vw,1.05rem); line-height:1.1; text-overflow:ellipsis; white-space:nowrap; }
+.chalk-leader { min-width:12px; margin-bottom:9px; border-bottom:2px dotted #d8e6de80; }
+.chalk-item > strong { color:#f4ce88; font-family:"Patrick Hand",cursive; font-size:clamp(1.25rem,2vw,2.15rem); font-weight:400; line-height:1; white-space:nowrap; }
+.chalk-badge { width:max-content; margin-top:4px; border:1px solid #ef9c5f; border-radius:2px; color:#efb27f; padding:1px 6px; font-family:"Caveat",cursive; font-size:clamp(.58rem,.8vw,.85rem); font-style:normal; font-weight:700; letter-spacing:.06em; text-transform:uppercase; transform:rotate(-2deg); }
+.chalk-sold .chalk-item-copy,.chalk-sold .chalk-leader,.chalk-sold > strong { opacity:.28; }
+.chalk-sold::after { content:"SOLD OUT"; position:absolute; right:0; top:50%; color:#ef9c73; font-family:"Caveat",cursive; font-size:clamp(1rem,1.6vw,1.7rem); font-weight:700; letter-spacing:.08em; transform:translateY(-50%) rotate(-5deg); }
+.chalk-footer { margin-top:clamp(17px,2vw,30px); padding-top:11px; border-top:1px solid #cfe2d987; display:flex; justify-content:space-between; gap:20px; color:#bfe2d2; font-family:"Caveat","Patrick Hand",cursive; font-size:clamp(.95rem,1.4vw,1.45rem); letter-spacing:.035em; }
 
 /* Admin: clean controls, no decorative type */
 .admin-page { min-height:100vh; background:#f3f5f4; font-family:"Inter",Arial,sans-serif; }
@@ -263,7 +269,6 @@ a { color:inherit; text-decoration:none; }
   .cart-title{font-size:1.45rem}
   .cart-empty{margin:24px 0}
   .admin-grid{grid-template-columns:1fr}
-  .chalk-header{align-items:flex-start;flex-direction:column}
   .chalk-items,.chalk-section:nth-child(2) .chalk-items{grid-template-columns:1fr}
   .chalk-footer{flex-direction:column;text-align:center}
   .board-columns{grid-template-columns:86vw 86vw 86vw}
@@ -284,9 +289,12 @@ a { color:inherit; text-decoration:none; }
   .modal-actions,.ledger-actions{grid-template-columns:1fr}
   .modal-product-head{grid-template-columns:94px 1fr;gap:14px}
   .modal-product-image{width:94px;height:94px}
-  .chalk-page{padding:14px}
-  .chalk-item{grid-template-columns:68px minmax(0,1fr) auto}
-  .chalk-image{width:68px;height:68px}
+  .chalk-page{padding:7px}
+  .chalk-board{min-height:calc(100vh - 14px);border-width:9px;padding:22px 13px}
+  .chalk-board::before,.chalk-board::after{top:13px;font-size:1.65rem}
+  .chalk-header{padding-inline:7%}
+  .chalk-item{grid-template-columns:minmax(0,max-content) minmax(12px,1fr) auto;gap:5px}
+  .chalk-item-copy small{max-width:17ch}
 }
 @media(max-width:350px){
   .customer-topbar .brand-name{font-size:1.08rem}
