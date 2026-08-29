@@ -80,9 +80,25 @@ test("menu item images are rendered and configurable through the menu sheet", as
   assert.match(component, /product-image/);
   assert.match(store, /image_url/);
   assert.match(template, /image_url/);
-  for (const slug of ["regular-coffee","cold-brew","latte","cappuccino","espresso-shot","donut","croissant"]) {
+  for (const slug of ["regular-coffee","cold-brew","latte","cappuccino","espresso-shot","tea","hot-chocolate","donut","croissant"]) {
     await fs.access(new URL(`../public/menu-images/${slug}.webp`, import.meta.url));
   }
+});
+
+test("admin inventory supports typed quantities and the current catalog", async () => {
+  const fs = await import("node:fs/promises");
+  const component = await fs.readFile(new URL("../components/CafeApp.tsx", import.meta.url), "utf8");
+  const store = await fs.readFile(new URL("../lib/store.ts", import.meta.url), "utf8");
+  const menuTemplate = await fs.readFile(new URL("../public/menu-template.csv", import.meta.url), "utf8");
+  const addonTemplate = await fs.readFile(new URL("../public/addons-template.csv", import.meta.url), "utf8");
+  assert.match(component, /function StockField/);
+  assert.match(component, /type="number" inputMode="numeric"/);
+  assert.match(component, /event\.key==="Enter"/);
+  assert.match(store, /name:"Tea"[\s\S]*?priceCents:400/);
+  assert.match(store, /name:"Hot Chocolate"[\s\S]*?priceCents:400/);
+  assert.match(store, /id:"cold-foam",name:"Cold Foam"[\s\S]*?priceCents:75/);
+  assert.doesNotMatch(menuTemplate, /whipped-cream/i);
+  assert.doesNotMatch(addonTemplate, /Whipped Cream/i);
 });
 
 test("customer and staff surfaces keep distinct readable visual systems", async () => {
