@@ -102,6 +102,17 @@ test("admin inventory supports typed quantities and the current catalog", async 
   assert.doesNotMatch(addonTemplate, /Whipped Cream/i);
 });
 
+test("menu display labels can be changed from the admin inventory", async () => {
+  const fs = await import("node:fs/promises");
+  const component = await fs.readFile(new URL("../components/CafeApp.tsx", import.meta.url), "utf8");
+  const inventoryRoute = await fs.readFile(new URL("../app/api/admin/inventory/route.ts", import.meta.url), "utf8");
+  assert.match(component, /<option value="">No Label<\/option>/);
+  for (const label of ["Limited Edition", "New", "Featured", "Seasonal"]) assert.match(component, new RegExp(`<option>${label}<\\/option>`));
+  assert.match(component, /statusLabel:event\.target\.value/);
+  assert.match(inventoryRoute, /status_label=\?/);
+  assert.match(inventoryRoute, /allowedStatusLabels/);
+});
+
 test("customer and staff surfaces keep distinct readable visual systems", async () => {
   const fs = await import("node:fs/promises");
   const component = await fs.readFile(new URL("../components/CafeApp.tsx", import.meta.url), "utf8");

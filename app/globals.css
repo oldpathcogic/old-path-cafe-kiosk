@@ -205,7 +205,9 @@ a { color:inherit; text-decoration:none; }
 .login-label { color:#66736c; font-size:.72rem; font-weight:800; letter-spacing:.11em; text-transform:uppercase; }
 .login-switch { display:block; margin-top:16px; color:#245c3c; font-size:.84rem; font-weight:700; text-align:center; }
 .inventory-panel { margin-bottom:18px; overflow-x:auto; }
-.inventory-head,.inventory-row { min-width:880px; display:grid; grid-template-columns:minmax(210px,1.5fr) 110px 160px 105px 105px; gap:12px; align-items:center; }
+.inventory-head,.inventory-row { display:grid; gap:12px; align-items:center; }
+.inventory-item-grid { min-width:1040px; grid-template-columns:minmax(210px,1.5fr) 110px 150px 160px 105px 105px; }
+.inventory-addon-grid { min-width:880px; grid-template-columns:minmax(210px,1.5fr) 110px 160px 105px 105px; }
 .inventory-head { border-bottom:1px solid #dfe4e1; padding:10px 0; color:#68746e; font-size:.7rem; font-weight:800; letter-spacing:.07em; text-transform:uppercase; }
 .inventory-row { border-bottom:1px solid #e7ebe9; padding:12px 0; }
 .inventory-row:last-child { border-bottom:0; }
@@ -213,6 +215,8 @@ a { color:inherit; text-decoration:none; }
 .inventory-name small { color:#6b7771; }
 .inventory-price { display:grid; gap:4px; color:#6b7771; font-size:.68rem; font-weight:700; }
 .inventory-price .field { min-width:0; padding:8px 9px; }
+.inventory-label { display:grid; gap:4px; color:#6b7771; font-size:.68rem; font-weight:700; }
+.inventory-label .field { min-width:0; padding:8px 24px 8px 9px; font-size:.78rem; }
 .stock-control { display:grid; grid-template-columns:1fr 34px 58px 34px; align-items:center; gap:4px; color:#6b7771; font-size:.68rem; font-weight:700; }
 .stock-control button { width:34px; height:34px; border:1px solid #c7d0cb; border-radius:7px; background:white; color:#27332d; font-size:1.05rem; font-weight:800; }
 .stock-input { width:58px; height:34px; border:1px solid #aebbb4; border-radius:7px; background:#fff; color:#27332d; padding:4px; text-align:center; font:800 .95rem/1 "Inter",Arial,sans-serif; }
