@@ -55,6 +55,7 @@ test("television menu includes a scannable customer-order entry point", async ()
   assert.match(component, /https:\/\/old-path-cafe\.oldpathcogic\.chatgpt\.site\//);
   assert.match(component, /chalk-qr-image/);
   assert.match(component, /Scan to Order/);
+  assert.doesNotMatch(component, /\} available<\/span>/);
   await fs.access(new URL("../public/order-qr.png", import.meta.url));
 });
 
