@@ -44,7 +44,8 @@ test("customer-ready notifications are wired through the kiosk, tracker, and men
   const component = await fs.readFile(new URL("../components/CafeApp.tsx", import.meta.url), "utf8");
   const ordersRoute = await fs.readFile(new URL("../app/api/orders/route.ts", import.meta.url), "utf8");
   assert.match(component, /Notify me when it’s ready/);
-  assert.match(component, /Ready for Pickup/);
+  assert.match(component, /Order Status/);
+  for (const label of ["Received", "Making", "Ready"]) assert.match(component, new RegExp(label));
   assert.match(ordersRoute, /trackingToken/);
   assert.match(ordersRoute, /pickupCode/);
 });
@@ -136,10 +137,45 @@ test("customer and staff surfaces keep distinct readable visual systems", async 
 test("phone ordering layout stays compact without sacrificing touch targets", async () => {
   const fs = await import("node:fs/promises");
   const styles = await fs.readFile(new URL("../app/globals.css", import.meta.url), "utf8");
-  assert.match(styles, /@media\(max-width:780px\)[\s\S]*?\.product-grid\{grid-template-columns:repeat\(2,minmax\(0,1fr\)\);gap:10px\}/);
+  assert.match(styles, /@media\(max-width:780px\)[\s\S]*?\.product-grid\{grid-template-columns:repeat\(3,minmax\(0,1fr\)\);gap:8px\}/);
   assert.match(styles, /@media\(max-width:780px\)[\s\S]*?\.category-tab\{[^}]*min-height:42px/);
-  assert.match(styles, /@media\(max-width:460px\)[\s\S]*?\.product-grid\{gap:8px\}/);
+  assert.match(styles, /@media\(max-width:460px\)[\s\S]*?\.product-grid\{grid-template-columns:repeat\(3,minmax\(0,1fr\)\);gap:6px\}/);
   assert.doesNotMatch(styles, /@media\(max-width:460px\)[\s\S]*?\.product-grid\{grid-template-columns:1fr\}/);
+});
+
+test("baristas can safely cancel orders and restore quantity-aware inventory", async () => {
+  const fs = await import("node:fs/promises");
+  const component = await fs.readFile(new URL("../components/CafeApp.tsx", import.meta.url), "utf8");
+  const orderRoute = await fs.readFile(new URL("../app/api/orders/[id]/route.ts", import.meta.url), "utf8");
+  assert.match(component, /window\.confirm/);
+  assert.match(component, /Are you sure you want to cancel/);
+  assert.match(component, /Cancel Order/);
+  assert.match(orderRoute, /payload\.status==="canceled"/);
+  assert.match(orderRoute, /quantity\*Math\.max\(1,Number\(addon\.quantity\|\|1\)\)/);
+});
+
+test("dairy milk and quantity-aware sweeteners flow through catalog and orders", async () => {
+  const fs = await import("node:fs/promises");
+  const component = await fs.readFile(new URL("../components/CafeApp.tsx", import.meta.url), "utf8");
+  const store = await fs.readFile(new URL("../lib/store.ts", import.meta.url), "utf8");
+  const orderRoute = await fs.readFile(new URL("../app/api/orders/route.ts", import.meta.url), "utf8");
+  const addonTemplate = await fs.readFile(new URL("../public/addons-template.csv", import.meta.url), "utf8");
+  for (const id of ["dairy-milk", "honey", "sugar"]) {
+    assert.match(store, new RegExp(`id:"${id}"`));
+    assert.match(addonTemplate, new RegExp(id));
+  }
+  assert.match(component, /Sugar quantity/);
+  assert.match(component, /Math\.min\(5/);
+  assert.match(orderRoute, /Sugar quantity must be between 1 and 5/);
+  assert.match(orderRoute, /selection\.quantity\*quantity/);
+});
+
+test("television menu is locked to a centered 16 by 9 canvas", async () => {
+  const fs = await import("node:fs/promises");
+  const styles = await fs.readFile(new URL("../app/globals.css", import.meta.url), "utf8");
+  assert.match(styles, /\.chalk-board \{[^}]*container-type:inline-size/s);
+  assert.match(styles, /\.chalk-board \{[^}]*width:min\(calc\(100vw - 14px\),calc\(177\.7778svh - 24\.8889px\)\)/s);
+  assert.match(styles, /@media\(orientation:portrait\)[\s\S]*?\.chalk-board\{[^}]*aspect-ratio:16\/9/);
 });
 
 test("tracked inventory updates availability and decrements with orders", async () => {

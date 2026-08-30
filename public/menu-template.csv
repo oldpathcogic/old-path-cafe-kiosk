@@ -1,10 +1,10 @@
 item_id,name,category,description,image_url,price,available,status_label,featured,display_order,allowed_addons,options,show_on_kiosk,show_on_menu_board
-regular-coffee,Regular Coffee,Coffee,"Classic drip coffee, hot and fresh",/menu-images/regular-coffee.webp,4.00,TRUE,,FALSE,1,"vanilla,caramel,hazelnut,mocha,oat-milk,almond-milk","Regular,Decaf",TRUE,TRUE
-cold-brew,Cold Brew,Coffee,"Smooth, bold, and refreshing",/menu-images/cold-brew.webp,6.00,TRUE,Limited Edition,TRUE,2,"vanilla,caramel,hazelnut,mocha,oat-milk,almond-milk",,TRUE,TRUE
-latte,Latte,Coffee,"Hot or iced, creamy and rich",/menu-images/latte.webp,6.00,TRUE,,FALSE,3,"vanilla,caramel,hazelnut,mocha,oat-milk,almond-milk,extra-shot,cold-foam,decaf-espresso","Hot,Iced",TRUE,TRUE
-cappuccino,Cappuccino,Coffee,"Foamy, smooth, and full of flavor",/menu-images/cappuccino.webp,6.00,TRUE,,FALSE,4,"vanilla,caramel,hazelnut,mocha,oat-milk,almond-milk,extra-shot,decaf-espresso",,TRUE,TRUE
-espresso-shot,Espresso Shot,Coffee,"Strong and rich",/menu-images/espresso-shot.webp,2.50,TRUE,,FALSE,5,decaf-espresso,,TRUE,TRUE
-tea,Tea,Coffee,"Freshly brewed, hot or iced",/menu-images/tea.webp,4.00,TRUE,,FALSE,6,"vanilla,caramel,hazelnut,oat-milk,almond-milk,cold-foam","Hot,Iced",TRUE,TRUE
-hot-chocolate,Hot Chocolate,Coffee,"Rich, warm, and chocolatey",/menu-images/hot-chocolate.webp,4.00,TRUE,,FALSE,7,"vanilla,caramel,hazelnut,oat-milk,almond-milk,cold-foam,extra-shot",,TRUE,TRUE
+regular-coffee,Regular Coffee,Coffee,"Classic drip coffee, hot and fresh",/menu-images/regular-coffee.webp,4.00,TRUE,,FALSE,1,"vanilla,caramel,hazelnut,mocha,dairy-milk,oat-milk,almond-milk,honey,sugar","Regular,Decaf",TRUE,TRUE
+cold-brew,Cold Brew,Coffee,"Smooth, bold, and refreshing",/menu-images/cold-brew.webp,6.00,TRUE,Limited Edition,TRUE,2,"vanilla,caramel,hazelnut,mocha,dairy-milk,oat-milk,almond-milk,honey,sugar",,TRUE,TRUE
+latte,Latte,Coffee,"Hot or iced, creamy and rich",/menu-images/latte.webp,6.00,TRUE,,FALSE,3,"vanilla,caramel,hazelnut,mocha,dairy-milk,oat-milk,almond-milk,honey,sugar,extra-shot,cold-foam,decaf-espresso","Hot,Iced",TRUE,TRUE
+cappuccino,Cappuccino,Coffee,"Foamy, smooth, and full of flavor",/menu-images/cappuccino.webp,6.00,TRUE,,FALSE,4,"vanilla,caramel,hazelnut,mocha,dairy-milk,oat-milk,almond-milk,honey,sugar,extra-shot,decaf-espresso",,TRUE,TRUE
+espresso-shot,Espresso Shot,Coffee,"Strong and rich",/menu-images/espresso-shot.webp,2.50,TRUE,,FALSE,5,"dairy-milk,decaf-espresso,honey,sugar",,TRUE,TRUE
+tea,Tea,Coffee,"Freshly brewed, hot or iced",/menu-images/tea.webp,4.00,TRUE,,FALSE,6,"vanilla,caramel,hazelnut,dairy-milk,oat-milk,almond-milk,honey,sugar,cold-foam","Hot,Iced",TRUE,TRUE
+hot-chocolate,Hot Chocolate,Coffee,"Rich, warm, and chocolatey",/menu-images/hot-chocolate.webp,4.00,TRUE,,FALSE,7,"vanilla,caramel,hazelnut,dairy-milk,oat-milk,almond-milk,honey,sugar,cold-foam,extra-shot",,TRUE,TRUE
 donut,Donut,Pastries,Sweet pastry,/menu-images/donut.webp,2.00,TRUE,,FALSE,8,,,TRUE,TRUE
 croissant,Croissant,Pastries,"Buttery, flaky pastry",/menu-images/croissant.webp,2.00,TRUE,,FALSE,9,,,TRUE,TRUE

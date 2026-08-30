@@ -3,8 +3,11 @@ vanilla,Vanilla Syrup,Vanilla,Flavor Syrup,0.75,TRUE
 caramel,Caramel Syrup,Caramel,Flavor Syrup,0.75,TRUE
 hazelnut,Hazelnut Syrup,Hazelnut,Flavor Syrup,0.75,TRUE
 mocha,Mocha Syrup,Mocha,Flavor Syrup,0.75,TRUE
+dairy-milk,Dairy Milk,Dairy Milk,Milk,0.00,TRUE
 oat-milk,Oat Milk,Oat Milk,Milk,0.75,TRUE
 almond-milk,Almond Milk,Almond Milk,Milk,0.75,TRUE
 cold-foam,Cold Foam,Cold Foam,Topping,0.75,TRUE
+honey,Honey,Honey,Sweetener,0.00,TRUE
+sugar,Sugar,Sugar,Sweetener,0.00,TRUE
 extra-shot,Extra Espresso Shot,Extra Shot,Coffee,1.00,TRUE
 decaf-espresso,Decaf Espresso Option,Decaf,Coffee,0.50,TRUE
