@@ -142,44 +142,44 @@ a { color:inherit; text-decoration:none; }
 .empty-col { color:#77817c; text-align:center; padding:60px 10px; font-size:.88rem; }
 
 /* Staff television menu: vintage framed chalkboard */
-.chalk-page { width:100vw; height:100svh; overflow:hidden; display:grid; place-items:center; padding:clamp(7px,1vw,18px); background:radial-gradient(circle at 16% 12%,#f8fff9 0,transparent 24%),radial-gradient(circle at 88% 86%,#cfe7db 0,transparent 28%),var(--mint); color:#f7f2dd; }
-.chalk-board { position:relative; width:min(calc(100vw - 14px),177.7778svh); max-height:calc(100svh - 14px); aspect-ratio:16/9; overflow:hidden; border:clamp(13px,1.55vw,24px) solid #715039; border-radius:7px; padding:clamp(20px,2.25vw,42px); background:radial-gradient(ellipse at 18% 20%,#ffffff0b 0,transparent 25%),radial-gradient(ellipse at 76% 72%,#6f91820a 0,transparent 31%),repeating-linear-gradient(2deg,#ffffff04 0 1px,transparent 1px 9px),#1d2723; box-shadow:inset 0 0 0 3px #a77b55,inset 0 0 0 7px #402d21,inset 0 0 78px #050908d9,0 15px 40px #143e2d35; font-family:"Schoolbell","Patrick Hand",cursive; }
-.chalk-board::before,.chalk-board::after { content:"❦"; position:absolute; top:20px; color:#cfe9dc99; font-family:Georgia,serif; font-size:clamp(2rem,3.7vw,4.3rem); line-height:1; text-shadow:1px 1px 0 #ffffff20; }
-.chalk-board::before { left:clamp(22px,3vw,54px); transform:rotate(-18deg); }
-.chalk-board::after { right:clamp(22px,3vw,54px); transform:rotate(198deg); }
-.chalk-header { position:relative; display:grid; justify-items:center; gap:2px; padding:0 13% clamp(16px,1.8vw,28px); color:#f8f3dd; text-align:center; }
-.chalk-header::after { content:"~  •  ❦  •  ~"; margin-top:9px; color:#e8c986; font-family:Georgia,serif; font-size:clamp(1rem,1.5vw,1.55rem); letter-spacing:.24em; }
-.chalk-logo { font-family:"Cabin Sketch","Fredericka the Great",Georgia,serif; font-size:clamp(3.5rem,6.35vw,7rem); font-weight:700; line-height:.82; letter-spacing:.015em; text-shadow:1px 2px 0 #ffffff1f,0 0 16px #ffffff0d; }
-.chalk-tag { color:#d8eee4; font-family:"Patrick Hand","Schoolbell",cursive; font-size:clamp(1.1rem,1.8vw,1.8rem); font-weight:400; line-height:1.1; letter-spacing:.055em; }
-.menu-board-label { order:-1; border-bottom:1px solid #e8c986aa; padding:0 24px 5px; color:#e8c986; font-family:"Patrick Hand",cursive; font-size:clamp(.85rem,1.15vw,1.2rem); letter-spacing:.24em; text-transform:uppercase; }
-.chalk-ready { margin:0 auto clamp(16px,1.7vw,26px); padding:8px 18px 10px; border:2px dashed #f0ad6c; border-radius:4px; text-align:center; color:#f7d7a8; background:#0a322a99; transform:rotate(-.15deg); }
-.chalk-ready h2 { display:inline; margin:0 20px 0 0; color:#f0ad6c; font-family:"Fredericka the Great",Georgia,serif; font-size:clamp(1.1rem,1.7vw,1.7rem); font-weight:400; }
+.chalk-page { width:100vw; height:100svh; overflow:hidden; display:grid; place-items:center; padding:7px; background:#101713; color:#f7f2dd; }
+.chalk-board { position:relative; container-type:inline-size; width:min(calc(100vw - 14px),calc(177.7778svh - 24.8889px)); height:auto; aspect-ratio:16/9; overflow:hidden; border:1.5cqw solid #715039; border-radius:.44cqw; padding:2.25cqw; background:radial-gradient(ellipse at 18% 20%,#ffffff0b 0,transparent 25%),radial-gradient(ellipse at 76% 72%,#6f91820a 0,transparent 31%),repeating-linear-gradient(2deg,#ffffff04 0 1px,transparent 1px 9px),#1d2723; box-shadow:inset 0 0 0 .19cqw #a77b55,inset 0 0 0 .44cqw #402d21,inset 0 0 4.9cqw #050908d9,0 .94cqw 2.5cqw #0008; font-family:"Schoolbell","Patrick Hand",cursive; }
+.chalk-board::before,.chalk-board::after { content:"❦"; position:absolute; top:1.25cqw; color:#cfe9dc99; font-family:Georgia,serif; font-size:3.7cqw; line-height:1; text-shadow:1px 1px 0 #ffffff20; }
+.chalk-board::before { left:3cqw; transform:rotate(-18deg); }
+.chalk-board::after { right:3cqw; transform:rotate(198deg); }
+.chalk-header { position:relative; display:grid; justify-items:center; gap:.13cqw; padding:0 13% 1.8cqw; color:#f8f3dd; text-align:center; }
+.chalk-header::after { content:"~  •  ❦  •  ~"; margin-top:.56cqw; color:#e8c986; font-family:Georgia,serif; font-size:1.5cqw; letter-spacing:.24em; }
+.chalk-logo { font-family:"Cabin Sketch","Fredericka the Great",Georgia,serif; font-size:6.35cqw; font-weight:700; line-height:.82; letter-spacing:.015em; text-shadow:1px 2px 0 #ffffff1f,0 0 16px #ffffff0d; }
+.chalk-tag { color:#d8eee4; font-family:"Patrick Hand","Schoolbell",cursive; font-size:1.8cqw; font-weight:400; line-height:1.1; letter-spacing:.055em; }
+.menu-board-label { order:-1; border-bottom:1px solid #e8c986aa; padding:0 1.5cqw .31cqw; color:#e8c986; font-family:"Patrick Hand",cursive; font-size:1.15cqw; letter-spacing:.24em; text-transform:uppercase; }
+.chalk-ready { margin:0 auto 1.7cqw; padding:.5cqw 1.13cqw .63cqw; border:.13cqw dashed #f0ad6c; border-radius:.25cqw; text-align:center; color:#f7d7a8; background:#0a322a99; transform:rotate(-.15deg); }
+.chalk-ready h2 { display:inline; margin:0 1.25cqw 0 0; color:#f0ad6c; font-family:"Fredericka the Great",Georgia,serif; font-size:1.7cqw; font-weight:400; }
 .chalk-ready div { display:inline-flex; justify-content:center; flex-wrap:wrap; gap:7px 16px; }
-.chalk-ready span { min-width:60px; padding:1px 7px; border-bottom:1px solid #f7d7a880; font-size:clamp(1.25rem,2vw,2rem); }
+.chalk-ready span { min-width:3.75cqw; padding:.06cqw .44cqw; border-bottom:1px solid #f7d7a880; font-size:2cqw; }
 .chalk-ready strong { color:#fff8e8; }
-.chalk-content { display:grid; grid-template-columns:1.35fr .72fr .48fr; align-items:stretch; gap:clamp(14px,1.7vw,30px); }
-.chalk-section { min-width:0; border:2px solid #d7eadf73; border-radius:3px; padding:clamp(15px,1.75vw,28px); background:#0b100e73; box-shadow:inset 0 0 25px #ffffff07; }
-.chalk-section-head { position:relative; display:flex; align-items:center; justify-content:center; gap:12px; margin-bottom:clamp(13px,1.6vw,23px); padding-bottom:8px; border-bottom:1px solid #d7eadf99; }
-.chalk-section-head::before,.chalk-section-head::after { content:"~"; color:#e8c986; font-family:"Caveat",cursive; font-size:clamp(1.5rem,2.6vw,2.8rem); }
-.chalk-section h2 { margin:0; color:#f7f2dd; font-family:"Fredericka the Great",Georgia,serif; font-size:clamp(1.9rem,3vw,3.5rem); font-weight:400; line-height:1; letter-spacing:.04em; }
-.chalk-items { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); column-gap:clamp(18px,2.4vw,42px); row-gap:clamp(9px,1.15vw,18px); }
+.chalk-content { display:grid; grid-template-columns:1.35fr .72fr .48fr; align-items:stretch; gap:1.7cqw; }
+.chalk-section { min-width:0; border:.13cqw solid #d7eadf73; border-radius:.19cqw; padding:1.75cqw; background:#0b100e73; box-shadow:inset 0 0 1.56cqw #ffffff07; }
+.chalk-section-head { position:relative; display:flex; align-items:center; justify-content:center; gap:.75cqw; margin-bottom:1.6cqw; padding-bottom:.5cqw; border-bottom:1px solid #d7eadf99; }
+.chalk-section-head::before,.chalk-section-head::after { content:"~"; color:#e8c986; font-family:"Caveat",cursive; font-size:2.6cqw; }
+.chalk-section h2 { margin:0; color:#f7f2dd; font-family:"Fredericka the Great",Georgia,serif; font-size:3cqw; font-weight:400; line-height:1; letter-spacing:.04em; }
+.chalk-items { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); column-gap:2.4cqw; row-gap:1.15cqw; }
 .chalk-section:nth-child(2) .chalk-items { grid-template-columns:1fr; }
 .chalk-item { position:relative; min-width:0; display:grid; grid-template-columns:minmax(0,max-content) minmax(16px,1fr) auto; align-items:end; gap:8px; padding:3px 0 6px; color:#f7f2dd; }
 .chalk-item-copy { min-width:0; display:grid; }
-.chalk-item-copy > span { font-family:"Schoolbell","Patrick Hand",cursive; font-size:clamp(1.2rem,1.85vw,2rem); line-height:1; letter-spacing:.025em; text-shadow:0 0 8px #ffffff0d; }
-.chalk-item-copy small { max-width:24ch; overflow:hidden; color:#b8d5c8; font-family:"Caveat","Patrick Hand",cursive; font-size:clamp(.72rem,1vw,1.05rem); line-height:1.1; text-overflow:ellipsis; white-space:nowrap; }
+.chalk-item-copy > span { font-family:"Schoolbell","Patrick Hand",cursive; font-size:1.85cqw; line-height:1; letter-spacing:.025em; text-shadow:0 0 8px #ffffff0d; }
+.chalk-item-copy small { max-width:24ch; overflow:hidden; color:#b8d5c8; font-family:"Caveat","Patrick Hand",cursive; font-size:1cqw; line-height:1.1; text-overflow:ellipsis; white-space:nowrap; }
 .chalk-leader { min-width:12px; margin-bottom:9px; border-bottom:2px dotted #d8e6de80; }
-.chalk-item > strong { color:#f4ce88; font-family:"Schoolbell","Patrick Hand",cursive; font-size:clamp(1.2rem,1.85vw,2rem); font-weight:400; line-height:1; white-space:nowrap; }
-.chalk-badge { width:max-content; margin-top:4px; border:1px solid #ef9c5f; border-radius:2px; color:#efb27f; padding:1px 6px; font-family:"Caveat",cursive; font-size:clamp(.58rem,.8vw,.85rem); font-style:normal; font-weight:700; letter-spacing:.06em; text-transform:uppercase; transform:rotate(-2deg); }
+.chalk-item > strong { color:#f4ce88; font-family:"Schoolbell","Patrick Hand",cursive; font-size:1.85cqw; font-weight:400; line-height:1; white-space:nowrap; }
+.chalk-badge { width:max-content; margin-top:.25cqw; border:1px solid #ef9c5f; border-radius:2px; color:#efb27f; padding:.06cqw .38cqw; font-family:"Caveat",cursive; font-size:.8cqw; font-style:normal; font-weight:700; letter-spacing:.06em; text-transform:uppercase; transform:rotate(-2deg); }
 .chalk-sold .chalk-item-copy,.chalk-sold .chalk-leader,.chalk-sold > strong { opacity:.28; }
-.chalk-sold::after { content:"SOLD OUT"; position:absolute; right:0; top:50%; color:#ef9c73; font-family:"Caveat",cursive; font-size:clamp(1rem,1.6vw,1.7rem); font-weight:700; letter-spacing:.08em; transform:translateY(-50%) rotate(-5deg); }
-.chalk-qr { min-width:0; border:2px dashed #e8c986b8; border-radius:3px; padding:clamp(12px,1.35vw,24px); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:clamp(5px,.7vw,11px); background:#f8f3dd08; color:#f7f2dd; text-align:center; }
-.chalk-qr > span { color:#bfe2d2; font-family:"Caveat","Patrick Hand",cursive; font-size:clamp(.8rem,1.05vw,1.1rem); font-weight:700; letter-spacing:.05em; }
-.chalk-qr-image { display:block; width:min(100%,clamp(148px,11.5vw,220px)); height:auto; aspect-ratio:1; border:clamp(5px,.45vw,8px) solid white; border-radius:3px; background:white; box-shadow:0 7px 18px #0008; }
-.chalk-qr strong { color:#f4ce88; font-family:"Cabin Sketch","Fredericka the Great",serif; font-size:clamp(1.15rem,1.7vw,1.85rem); line-height:1; }
-.chalk-qr small { color:#b8d5c8; font-family:"Caveat","Patrick Hand",cursive; font-size:clamp(.7rem,.88vw,.92rem); }
-.chalk-qr a { color:#dcebe4; font-family:"Patrick Hand",cursive; font-size:clamp(.62rem,.7vw,.76rem); letter-spacing:.02em; }
-.chalk-footer { margin-top:clamp(17px,2vw,30px); padding-top:11px; border-top:1px solid #cfe2d987; display:flex; justify-content:space-between; gap:20px; color:#bfe2d2; font-family:"Caveat","Patrick Hand",cursive; font-size:clamp(.95rem,1.4vw,1.45rem); letter-spacing:.035em; }
+.chalk-sold::after { content:"SOLD OUT"; position:absolute; right:0; top:50%; color:#ef9c73; font-family:"Caveat",cursive; font-size:1.6cqw; font-weight:700; letter-spacing:.08em; transform:translateY(-50%) rotate(-5deg); }
+.chalk-qr { min-width:0; border:.13cqw dashed #e8c986b8; border-radius:.19cqw; padding:1.35cqw; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:.7cqw; background:#f8f3dd08; color:#f7f2dd; text-align:center; }
+.chalk-qr > span { color:#bfe2d2; font-family:"Caveat","Patrick Hand",cursive; font-size:1.05cqw; font-weight:700; letter-spacing:.05em; }
+.chalk-qr-image { display:block; width:min(100%,11.5cqw); height:auto; aspect-ratio:1; border:.45cqw solid white; border-radius:.19cqw; background:white; box-shadow:0 .44cqw 1.13cqw #0008; }
+.chalk-qr strong { color:#f4ce88; font-family:"Cabin Sketch","Fredericka the Great",serif; font-size:1.7cqw; line-height:1; }
+.chalk-qr small { color:#b8d5c8; font-family:"Caveat","Patrick Hand",cursive; font-size:.88cqw; }
+.chalk-qr a { color:#dcebe4; font-family:"Patrick Hand",cursive; font-size:.7cqw; letter-spacing:.02em; }
+.chalk-footer { margin-top:2cqw; padding-top:.69cqw; border-top:1px solid #cfe2d987; display:flex; justify-content:space-between; gap:1.25cqw; color:#bfe2d2; font-family:"Caveat","Patrick Hand",cursive; font-size:1.4cqw; letter-spacing:.035em; }
 
 /* Admin: clean controls, no decorative type */
 .admin-page { min-height:100vh; background:#f3f5f4; font-family:"Inter",Arial,sans-serif; }
@@ -248,9 +248,6 @@ a { color:inherit; text-decoration:none; }
 @media(max-width:1120px){
   .product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .kiosk-grid{grid-template-columns:minmax(0,1fr) 330px}
-  .chalk-content{grid-template-columns:1fr}
-  .chalk-section:nth-child(2) .chalk-items{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .chalk-qr{width:min(360px,100%);justify-self:center}
 }
 @media(max-width:780px){
   .customer-topbar{min-height:62px;padding:9px 12px;gap:8px}
@@ -280,8 +277,6 @@ a { color:inherit; text-decoration:none; }
   .cart-title{font-size:1.45rem}
   .cart-empty{margin:24px 0}
   .admin-grid{grid-template-columns:1fr}
-  .chalk-items,.chalk-section:nth-child(2) .chalk-items{grid-template-columns:1fr}
-  .chalk-footer{flex-direction:column;text-align:center}
   .board-columns{grid-template-columns:86vw 86vw 86vw}
   .track-wrap{padding-top:30px}
 }
@@ -300,16 +295,6 @@ a { color:inherit; text-decoration:none; }
   .modal-actions,.ledger-actions{grid-template-columns:1fr}
   .modal-product-head{grid-template-columns:94px 1fr;gap:14px}
   .modal-product-image{width:94px;height:94px}
-  .chalk-page{padding:7px}
-  .chalk-board{border-width:9px;padding:22px 13px}
-  .chalk-board::before,.chalk-board::after{top:13px;font-size:1.65rem}
-  .chalk-header{padding-inline:7%}
-  .chalk-item{grid-template-columns:minmax(0,max-content) minmax(12px,1fr) auto;gap:5px}
-  .chalk-item-copy small{max-width:17ch}
-}
-@media(orientation:portrait){
-  .chalk-page{width:100%;height:auto;min-height:100vh;overflow:visible;align-items:start}
-  .chalk-board{width:100%;max-height:none;min-height:calc(100vh - 14px);aspect-ratio:auto;overflow:visible}
 }
 @media(max-width:350px){
   .customer-topbar .brand-name{font-size:1.08rem}

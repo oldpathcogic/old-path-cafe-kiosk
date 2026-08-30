@@ -124,6 +124,9 @@ test("customer and staff surfaces keep distinct readable visual systems", async 
   assert.match(styles, /\.chalk-logo \{[^}]*font-family:"Cabin Sketch"/s);
   assert.match(styles, /\.chalk-tag \{[^}]*font-family:"Patrick Hand"/s);
   assert.match(styles, /\.chalk-board \{[^}]*aspect-ratio:16\/9/s);
+  assert.match(styles, /\.chalk-board \{[^}]*container-type:inline-size/s);
+  assert.match(styles, /\.chalk-board \{[^}]*width:min\(calc\(100vw - 14px\),calc\(177\.7778svh - 24\.8889px\)\)/s);
+  assert.doesNotMatch(styles, /@media\(orientation:portrait\)[\s\S]*?\.chalk-board[^}]*aspect-ratio:auto/);
   assert.match(styles, /\.chalk-board \{[^}]*border:[^;]*solid #715039[^}]*background:[^}]*#1d2723/s);
   assert.match(styles, /\.chalk-board::before,\.chalk-board::after \{[^}]*content:"❦"/s);
   assert.match(styles, /\.board-page \{[^}]*font-family:"Inter"/s);
