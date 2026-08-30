@@ -39,6 +39,15 @@ test("the automatic ledger feed is token protected and shares the canonical CSV 
   assert.match(adminExport, /buildLedgerCsv/);
 });
 
+test("ledger timestamps use Pacific time for historical and future imports", async () => {
+  const fs = await import("node:fs/promises");
+  const ledger = await fs.readFile(new URL("../lib/ledger.ts", import.meta.url), "utf8");
+  assert.match(ledger, /timeZone:"America\/Los_Angeles"/);
+  assert.match(ledger, /Order Time \(Pacific\)/);
+  assert.match(ledger, /pacificTimestamp\(row\.created_at\)/);
+  assert.doesNotMatch(ledger, /timestamp\.slice\(11,16\)/);
+});
+
 test("customer-ready notifications are wired through the kiosk, tracker, and menu board", async () => {
   const fs = await import("node:fs/promises");
   const component = await fs.readFile(new URL("../components/CafeApp.tsx", import.meta.url), "utf8");
