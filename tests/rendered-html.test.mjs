@@ -152,6 +152,21 @@ test("phone ordering layout stays compact without sacrificing touch targets", as
   assert.doesNotMatch(styles, /@media\(max-width:460px\)[\s\S]*?\.product-grid\{grid-template-columns:1fr\}/);
 });
 
+test("mobile checkout makes the final step obvious without slowing menu selection", async () => {
+  const fs = await import("node:fs/promises");
+  const component = await fs.readFile(new URL("../components/CafeApp.tsx", import.meta.url), "utf8");
+  const styles = await fs.readFile(new URL("../app/globals.css", import.meta.url), "utf8");
+  assert.match(component, /Review & Place Order/);
+  assert.match(component, /Last step/);
+  assert.match(component, /Enter your name, then send the order to the barista/);
+  assert.match(component, /Place Order — Send to Barista/);
+  assert.match(component, /cart\.length>0&&!selected/);
+  assert.match(component, /autoFocus/);
+  assert.match(styles, /\.mobile-checkout-bar \{ display:none; \}/);
+  assert.match(styles, /@media\(max-width:780px\)[\s\S]*?\.cart-pane\{display:none\}/);
+  assert.match(styles, /@media\(max-width:780px\)[\s\S]*?\.mobile-checkout-bar\{position:fixed/);
+});
+
 test("baristas can safely cancel orders and restore quantity-aware inventory", async () => {
   const fs = await import("node:fs/promises");
   const component = await fs.readFile(new URL("../components/CafeApp.tsx", import.meta.url), "utf8");
