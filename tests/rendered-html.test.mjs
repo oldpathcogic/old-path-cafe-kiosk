@@ -61,6 +61,15 @@ test("customer-ready notifications are wired through the kiosk, tracker, and men
   assert.match(ordersRoute, /pickupCode/);
 });
 
+test("the latest customer order remains available on the same device", async () => {
+  const fs = await import("node:fs/promises");
+  const component = await fs.readFile(new URL("../components/CafeApp.tsx", import.meta.url), "utf8");
+  assert.match(component, /old-path-cafe-last-order/);
+  assert.match(component, /localStorage\.setItem\(lastOrderKey/);
+  assert.match(component, /This device remembers your latest order for 24 hours/);
+  assert.match(component, /Track a different order/);
+});
+
 test("television menu includes a scannable customer-order entry point", async () => {
   const fs = await import("node:fs/promises");
   const component = await fs.readFile(new URL("../components/CafeApp.tsx", import.meta.url), "utf8");
