@@ -36,6 +36,8 @@ test("the automatic ledger feed is token protected and shares the canonical CSV 
   const adminExport = await fs.readFile(new URL("../app/api/admin/orders/route.ts", import.meta.url), "utf8");
   assert.match(feed, /LEDGER_FEED_TOKEN/);
   assert.match(feed, /buildLedgerCsv/);
+  assert.match(feed, /no-store, no-cache, must-revalidate/);
+  assert.match(feed, /"pragma":"no-cache"/);
   assert.match(adminExport, /buildLedgerCsv/);
 });
 
