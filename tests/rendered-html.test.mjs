@@ -1,15 +1,26 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 
-test("build contains every Old Path Cafe screen and metadata", async () => {
+test("build contains every Sacred Grounds screen and metadata", async () => {
   const fs = await import("node:fs/promises");
   const layout = await fs.readFile(new URL("../app/layout.tsx", import.meta.url), "utf8");
-  assert.match(layout, /title: "Old Path Cafe"/);
+  assert.match(layout, /title: "Sacred Grounds"/);
   assert.doesNotMatch(layout, /codex-preview/);
   for (const path of ["../app/page.tsx", "../app/staff/barista/page.tsx", "../app/staff/display/page.tsx", "../app/staff/admin/page.tsx", "../app/track/page.tsx"]) {
     const source = await fs.readFile(new URL(path, import.meta.url), "utf8");
     assert.match(source, /CafeApp/);
   }
+});
+
+test("Sacred Grounds branding is used across customer, staff, and new orders", async () => {
+  const fs = await import("node:fs/promises");
+  const component = await fs.readFile(new URL("../components/CafeApp.tsx", import.meta.url), "utf8");
+  const store = await fs.readFile(new URL("../lib/store.ts", import.meta.url), "utf8");
+  const orders = await fs.readFile(new URL("../app/api/orders/route.ts", import.meta.url), "utf8");
+  assert.match(component, />Sacred Grounds</);
+  assert.match(component, /Your Sacred Grounds order is ready/);
+  assert.match(store, /cafeName:"Sacred Grounds"/);
+  assert.match(orders, /const id=`SG-/);
 });
 
 test("built worker exposes the cafe API routes", async () => {

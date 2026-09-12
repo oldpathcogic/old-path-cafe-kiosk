@@ -1,4 +1,4 @@
-# Old Path Cafe
+# Sacred Grounds
 
 [![Validate production app](https://github.com/oldpathcogic/old-path-cafe-kiosk/actions/workflows/nextjs.yml/badge.svg)](https://github.com/oldpathcogic/old-path-cafe-kiosk/actions/workflows/nextjs.yml)
 
